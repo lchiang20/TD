@@ -1,0 +1,58 @@
+/* parts courtesy of w3schools. */
+
+{%  load staticfiles %}
+<!DOCTYPE html>
+<script src="{%  static 'assets/admin/js/welcome.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{%  static 'assets/admin/css/welcome.css' %}">
+
+
+
+<html>
+<head>
+ <style>
+   p {text-align: center};
+ </style>
+
+ <meta name="google-signin-client_id" content="844447968069-sll1lj94217jbntgvtqcm3s2fnan4prt.apps.googleusercontent.com">
+
+</head>
+
+<body>
+
+<div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+<script>
+function onSignIn(googleUser) {
+ var profile = googleUser.getBasicProfile();
+ console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+ console.log('Name: ' + profile.getName());
+ console.log('Image URL: ' + profile.getImageUrl());
+ console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+ alert('ID: ' + profile.getId() + '\nName: '  + profile.getName() + '\nImage URL: ' + profile.getImageUrl() + '\nEm
+ail: ' + profile.getEmail());
+
+}
+
+   function signOut() {
+     var auth2 = gapi.auth2.getAuthInstance();
+     auth2.signOut().then(function () {
+       console.log('User signed out.');
+     });
+   }
+
+   function onLoad() {
+     gapi.load('auth2', function() {
+       gapi.auth2.init();
+     });
+   }
+ </script>
+ <a href="#" onclick="signOut();">Sign out</a>
+
+ <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+
+<p>
+
+</p>
+</body>
+</html>
+
