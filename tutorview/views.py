@@ -15,17 +15,18 @@ def tutorview(request):
     if request.method == 'POST':
         if request.POST.get('profScore') and request.POST.get('idStudent')\
                 and request.POST.get('coopScore') and request.POST.get('report'):
+            #email = request.session('email')
             rpt = request.POST.get('report')
             coop = request.POST.get('coopScore')
             id = request.POST.get('idStudent')
             prof = request.POST.get('profScore')
 
-            ### NEED TO GET TUTOR ID FOR VAR tutor BELOW
+            ### NEED TO GET TUTOR ID FOR
+            # VAR tutor BELOW
             #pair = getPairID(id, tutor)
             if updateRT(rpt, id) == "err":
                 return render(request, 'studentrpt.html', {'students' : students})
-
-            #updateCS(coop, pair)
+            updateCS(coop, id)
             updatePS(prof, id)
             return render(request, 'studentrpt.html', {'students' : students})
         else:
