@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4fb07352-b678-4434-8dcc-1503007500d4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutoringDragons/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/TutoringDragons/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/admin/css/studentrpt.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/admin/css/studentrpt.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/studentrpt.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/studentrpt.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/welcome.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/welcome.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -176,7 +172,7 @@
       <workItem from="1568528020589" duration="1310000" />
       <workItem from="1568529598424" duration="16593000" />
       <workItem from="1568856438967" duration="38000" />
-      <workItem from="1568856564410" duration="12004000" />
+      <workItem from="1568856564410" duration="12316000" />
     </task>
     <servers />
   </component>
