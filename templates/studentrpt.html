@@ -24,52 +24,49 @@
 <div class="tab">
 {% for student in students %}
   <button class="tablinks"  onclick="openStudent(event, {{ student.idstudent }})">{{ student.firstname}}</button>
-
 {% endfor %}
 
 </div>
+
 
 {% for student in students %}
 <div id={{student.idstudent }}  class="tabcontent">
     <h3>{{student.firstname}} {{student.lastname }}</h3>
     <form action ="" method = "POST">{% csrf_token %}
-        <select id = "idStudent" name = 'idStudent'>
+        <select id = "idStudent" name = 'idStudent' class = "info_form">
             <option>{{ student.idstudent }}</option>
-            <script>document.getElementById("idStudent").style.display = "none";</script>
         </select>
-        <select id = "profScore" name = "profScore">
-            <option value="" selected disabled hidden>Proficiency</option>
-            <option>-5</option>
-            <option>-4</option>
-            <option>-3</option>
-            <option>-2</option>
-            <option>-1</option>
-            <option>0</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-
-        </select>
-        <select id = "coopScore" name = "coopScore">
-            <option value="" selected disabled hidden>Cooperation</option>
-            <option>-5</option>
-            <option>-4</option>
-            <option>-3</option>
-            <option>-2</option>
-            <option>-1</option>
-            <option>0</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-        </select>
-        <textarea rows = '8' cols = '100' name = "report"></textarea>
-        <input type="submit" value="Submit"/>
+            <select id = "profScore" name = "profScore" class = "choice">
+                <option value="" selected disabled hidden>Proficiency</option>
+                <option>-5</option>
+                <option>-4</option>
+                <option>-3</option>
+                <option>-2</option>
+                <option>-1</option>
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+            <select id = "coopScore" name = "coopScore" class = "choice">
+                <option value="" selected disabled hidden>Cooperation</option>
+                <option>-5</option>
+                <option>-4</option>
+                <option>-3</option>
+                <option>-2</option>
+                <option>-1</option>
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+            <textarea rows = '8' cols = '100' name = "report"></textarea>
+            <input type="submit" value="Submit"/>
     </form>
-
 </div>
 {% endfor %}
 
@@ -97,7 +94,5 @@ for (i = 0; i < close.length; i++) {
 }
 </script>
 </div>
-
-
 </body>
 

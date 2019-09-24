@@ -20,17 +20,21 @@
 
 <div class="g-signin2" data-onsuccess="onSignIn"></div>
 
+
+
 <script>
 function onSignIn(googleUser) {
  var profile = googleUser.getBasicProfile();
- var email
+ var email;
  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
  console.log('Name: ' + profile.getName());
  console.log('Image URL: ' + profile.getImageUrl());
+ console.log('email:  ' + profile.getEmail());
  email = profile.getEmail()); // This is null if the 'email' scope is not present.
  alert('ID: ' + profile.getId() + '\nName: '  + profile.getName() + '\nImage URL: ' + profile.getImageUrl() + '\nEm
 ail: ' + profile.getEmail());
-document.getElementById("remail").innerHTML = email
+document.getElementById("remail").innerHTML = email;
+document.write(email);
 }
 
    function signOut() {
