@@ -10,6 +10,10 @@ class Pair(models.Model):
         managed = False
         db_table = 'Pair'
 
+class SessionManager(models.Manager):
+    def createSession(self, id, date, rpt, profchange, coopchange):
+        session = self.update_or_create(idpair=id, date=date, progressreport=rpt, profchange=profchange, coopchange=coopchange)
+        return session
 
 class Session(models.Model):
     idpair = models.ForeignKey(Pair, models.DO_NOTHING, db_column='idPair')  # Field name made lowercase.
@@ -21,8 +25,9 @@ class Session(models.Model):
     class Meta:
         managed = False
         db_table = 'Session'
-        unique_together = (('date', 'idpair'),)
+        unique_together = ('date', 'idpair')
 
+    objects = SessionManager()
 
 
 class Student(models.Model):

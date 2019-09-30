@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4fb07352-b678-4434-8dcc-1503007500d4" name="Default Changelist" comment="">
+    <list default="true" id="4fb07352-b678-4434-8dcc-1503007500d4" name="Default Changelist" comment="Reinforced">
+      <change afterPath="$PROJECT_DIR$/adminview/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminview/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminview/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminview/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminview/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminview/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminview/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/welcome.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/welcome.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/signin/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/signin/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/signin/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/signin/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/studentrpt.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/studentrpt.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/welcome.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorview/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/tutorview/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorview/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tutorview/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,6 +62,9 @@
   </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="TutoringDragons" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -172,7 +187,9 @@
       <workItem from="1568528020589" duration="1310000" />
       <workItem from="1568529598424" duration="16593000" />
       <workItem from="1568856438967" duration="38000" />
-      <workItem from="1568856564410" duration="12316000" />
+      <workItem from="1568856564410" duration="13050000" />
+      <workItem from="1569289373450" duration="4025000" />
+      <workItem from="1569729703568" duration="17393000" />
     </task>
     <servers />
   </component>
@@ -194,5 +211,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>
