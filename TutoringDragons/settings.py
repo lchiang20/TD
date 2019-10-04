@@ -21,13 +21,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config("SECRET_KEY")
+# SECRET_KEY = config("SECRET_KEY")
+SECRET_KEY = '23rb-6d!_y!&qb2c6$t=7ns1i&un%8rvx^1@o4j$y&+bv!qeu+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=True, cast=bool)
 
 
-ALLOWED_HOSTS = config("ALLOWED_HOSTS", cast=Csv())
+# ALLOWED_HOSTS = config("ALLOWED_HOSTS", cast=Csv())
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'tutorview.apps.TutorviewConfig',
 ]
 
@@ -78,16 +79,16 @@ WSGI_APPLICATION = 'TutoringDragons.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'TutoringDragons',
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'HOST': '127.0.0.1',
-        'Port': '',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'TutoringDragons',
+#         'USER': 'honnguyen',
+#         'PASSWORD': 'ssis1234',
+#         'HOST': 'localhost',
+#         'Port': '',
+#     }
+# }
 
 
 # Password validation
