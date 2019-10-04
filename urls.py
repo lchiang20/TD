@@ -4,5 +4,6 @@ from tutorview import views
 admin.autodiscover()
 urlpatterns = [
     # url('', include(admin.site.urls)),
-    url('', views.tutorview, name = 'index.html')
+    url('', views.index, name='index'),
+    # url('', views.tutorview, name = 'index.html')
 ]
