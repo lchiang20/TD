@@ -32,10 +32,9 @@ function onSignIn(googleUser) {
  console.log('Image URL: ' + profile.getImageUrl());
  console.log('email:  ' + profile.getEmail());
  email = profile.getEmail()); // This is null if the 'email' scope is not present.
- alert('ID: ' + profile.getId() + '\nName: '  + profile.getName() + '\nImage URL: ' + profile.getImageUrl() + '\nEm
-ail: ' + profile.getEmail());
-document.getElementById("remail").innerHTML = email;
-document.write(email);
+ alert('ID: ' + profile.getId() + '\nName: '  + profile.getName() + '\nImage URL: ' + profile.getImageUrl() + '\nEmail: ' + profile.getEmail());
+ document.getElementById("remail").innerHTML = email;
+ document.write(email);
 }
 
    function signOut() {

@@ -12,7 +12,8 @@ from django.http import HttpResponse
 # @ensure_csrf_cookie
 def tutorview(request):
     ## TEST VALUE
-    tutor = 2
+    email = request.session['email']
+    tutor = Tutor.objects.filter(email__exact = email)[0].idtutor
     pairSelect = Pair.objects.filter(idtutor__exact = tutor)
     studentLst = []
     for i in pairSelect:
@@ -22,7 +23,6 @@ def tutorview(request):
     if request.method == 'POST':
         if request.POST.get('profScore') and request.POST.get('idStudent')\
                 and request.POST.get('coopScore') and request.POST.get('report'):
-            #email = request.session('email')
             rpt = request.POST.get('report')
             coop = request.POST.get('coopScore')
             student = request.POST.get('idStudent')

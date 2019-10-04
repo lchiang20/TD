@@ -5,6 +5,7 @@ from django.http import HttpResponse
 
 def welcome(request):
     if request.POST.get('email'):
-        request.session('email')
+        request.session['email'] = request.POST.get('email')
         return render(request, 'studentrpt.html')
-    return render(request, 'index.html')
+    else:
+        return render(request, 'index.html')
