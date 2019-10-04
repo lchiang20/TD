@@ -73,7 +73,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'TutoringDragons.wsgi.application'
+WSGI_APPLICATION = 'apps.wsgi.application'
 
 
 # Database
