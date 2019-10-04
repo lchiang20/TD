@@ -1,9 +1,11 @@
 from django.contrib import admin
 from django.conf.urls import include, url
-from tutorview import views
+from django.contrib.auth.views import login
+from tutorview.views import index, adminview, studentview
 admin.autodiscover()
+print admin
 urlpatterns = [
-    # url('', include(admin.site.urls)),
-    url('', views.index, name='index'),
-    # url('', views.tutorview, name = 'index.html')
+    url(r'^$', index, name='index'),
+    url(r'^adminview/$', adminview, name='adminview'),
+    url(r'^studentview/$', studentview, name='studentview'),
 ]

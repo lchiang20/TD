@@ -6,10 +6,14 @@ from django.template import RequestContext
 
 from django.http import HttpResponse
 # Create your views here.
-
-def index(request):
-    print 'honnguyen'
+def index(request, indexurl = ''):
     return render(request, 'index.html')
+
+def adminview(request):
+    return render(request, 'adminview.html')
+
+def studentview(request):
+    return render(request, 'studentrpt.html')
 
 # Create your views here.
 # @ensure_csrf_cookie
