@@ -17,6 +17,7 @@ urlpatterns = [
     url(r'^adminview/$', adminview, name='adminview'),
     url(r'^studentview/$', studentview, name='studentview'),
 ]
+
 http://honnguyen.ssis.edu.vn for index
 http://honnguyen.ssis.edu.vn/adminview for adminview
 http://honnguyen.ssis.edu.vn/studentview for studentview
