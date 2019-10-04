@@ -2,11 +2,14 @@ from django.shortcuts import render
 from .models import Student, Session, Tutor, Pair
 from datetime import date
 from django.views.decorators.csrf import ensure_csrf_cookie
-
+from django.template import RequestContext
 
 from django.http import HttpResponse
 # Create your views here.
 
+def index(request):
+    print 'honnguyen'
+    return render(request, 'index.html')
 
 # Create your views here.
 # @ensure_csrf_cookie
