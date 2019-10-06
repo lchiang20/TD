@@ -47,16 +47,15 @@ create table Pair
 create index Pair_idPair_index
     on Pair (idPair);
 
-create table Session
-(
-    idPair         int           not null,
-    date           int           not null,
-    progressReport mediumtext    not null,
-    profChange     int default 0 not null,
-    coopChange     int default 0 not null,
-    primary key (date, idPair),
-    constraint Session_Pair_idPair_fk
-        foreign key (idPair) references Pair (idPair)
-);
 
+CREATE TABLE `Session` (
+  `idPair` int(11) NOT NULL,
+  `date` int(11) NOT NULL,
+  `progressReport` mediumtext NOT NULL,
+  `profChange` int(11) NOT NULL DEFAULT '0',
+  `coopChange` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`date`,`idPair`),
+  KEY `Session_Pair_idPair_fk` (`idPair`),
+  CONSTRAINT `Session_Pair_idPair_fk` FOREIGN KEY (`idPair`) REFERENCES `pair` (`idPair`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 

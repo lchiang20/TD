@@ -1,9 +1,15 @@
 from django.shortcuts import render
-from TutoringDragons.tutorview.models import *
+from tutorview.models import Student, Session, Tutor, Pair
 
 # Create your views here.
 def adminview(request):
-
+    studentLst = Student.objects.all()
+    tutorLst = Tutor.objects.all()
+    sessionLst = []
+    for i in Session.objects.all():
+        sessionLst.append(i)
+    list.reverse(sessionLst)
+    return render(request, 'adminview.html', {'sessions': sessionLst, 'tutors':tutorLst, 'students':studentLst})
 
 def rptSearch(keyword):
     rptLst = Session.objects.all()

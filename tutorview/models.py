@@ -2,13 +2,15 @@ from django.db import models
 
 
 class Pair(models.Model):
-    idpair = models.AutoField(db_column='idPair', primary_key=True)  # Field name made lowercase.
+    idpair = models.AutoField(db_column='idPair', unique=True, primary_key=True)  # Field name made lowercase.
     idstudent = models.ForeignKey('Student', models.DO_NOTHING, db_column='idStudent')  # Field name made lowercase.
     idtutor = models.ForeignKey('Tutor', models.DO_NOTHING, db_column='idTutor')  # Field name made lowercase.
 
     class Meta:
         managed = False
         db_table = 'Pair'
+        unique_together = (('idstudent', 'idtutor'),)
+
 
 class SessionManager(models.Manager):
     def createSession(self, id, date, rpt, profchange, coopchange):
