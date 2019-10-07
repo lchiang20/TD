@@ -2,6 +2,19 @@ from django.shortcuts import render
 from .models import Student, Session, Tutor, Pair
 from datetime import date
 
+<<<<<<< HEAD
+=======
+from django.http import HttpResponse
+# Create your views here.
+def index(request, indexurl = ''):
+    return render(request, 'index.html')
+>>>>>>> honnguyen
+
+def adminview(request):
+    return render(request, 'adminview.html')
+
+def studentview(request):
+    return render(request, 'studentrpt.html')
 
 # Create your views here.
 
