@@ -1,0 +1,103 @@
+{%  load staticfiles %}
+
+<!DOCTYPE html>
+
+<script src="{%  static 'assets/admin/js/studentrpt.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{%  static 'assets/admin/css/studentrpt.css' %}">
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Report</title>
+</head>
+<div class="banner">
+  <div class="banner-text">
+    <h1>Tutoring Dragons Report</h1>
+  </div>
+</div>
+<body onload= "hideStudent(), hideAlert()">
+<p id = "greet">
+
+</p>
+
+<div class="tab">
+{% for student in students %}
+  <button class="tablinks"  onclick="openStudent(event, {{ student.idstudent }})">{{ student.firstname}}</button>
+{% endfor %}
+
+</div>
+
+
+{% for student in students %}
+<div id={{student.idstudent }}  class="tabcontent">
+    <h3>{{student.firstname}} {{student.lastname }}</h3>
+    <form action ="" method = "POST">{% csrf_token %}
+        <select id = "idStudent" name = 'idStudent' class = "info_form">
+            <option>{{ student.idstudent }}</option>
+        </select>
+            <textarea rows = '8' cols = '100' name = "report"></textarea>
+            <input type="submit" value="Submit"/>
+            <div class = "box">
+                <select id = "profScore" name = "profScore" class = "choice">
+                    <option value="" selected disabled hidden>Proficiency</option>
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+            </div>
+
+            <div class = "box">
+                <select id = "coopScore" name = "coopScore" class = "choice">
+                    <option value="" selected disabled hidden>Cooperation</option>
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+            </div>
+    </form>
+</div>
+{% endfor %}
+
+<div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  You have already submitted an evaluation for this student today.
+<script>
+// Get all elements with class="closebtn"
+var close = document.getElementsByClassName("closebtn");
+var i;
+// Loop through all close buttons
+for (i = 0; i < close.length; i++) {
+  // When someone clicks on a close button
+  close[i].onclick = function(){
+
+    // Get the parent of <span class="closebtn"> (<div class="alert">)
+    var div = this.parentElement;
+
+    // Set the opacity of div to 0 (transparent)
+    div.style.opacity = "0";
+
+    // Hide the div after 600ms (the same amount of milliseconds it takes to fade out)
+    setTimeout(function(){ div.style.display = "none"; }, 600);
+  }
+}
+</script>
+</div>
+</body>
+

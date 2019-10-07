@@ -1,14 +1,13 @@
 from django.shortcuts import render
 from .models import Student, Session, Tutor, Pair
 from datetime import date
+from django.views.decorators.csrf import ensure_csrf_cookie
+from django.template import RequestContext
 
-<<<<<<< HEAD
-=======
 from django.http import HttpResponse
 # Create your views here.
 def index(request, indexurl = ''):
     return render(request, 'index.html')
->>>>>>> honnguyen
 
 def adminview(request):
     return render(request, 'adminview.html')
@@ -17,22 +16,13 @@ def studentview(request):
     return render(request, 'studentrpt.html')
 
 # Create your views here.
-
+# @ensure_csrf_cookie
 def tutorview(request):
     ## TEST VALUE
-    email = "lchiang20@ssis.edu.vn"
-    #email = request.session['email']
+    email = request.session['email']
     tutor = Tutor.objects.filter(email__exact = email)[0].idtutor
-    #tutor = 2
     pairSelect = Pair.objects.filter(idtutor__exact = tutor)
     studentLst = []
-
-    #check of user is admin
-    if Tutor.objects.filter(pk=tutor)[0].admin == 1:
-        admin = True
-    else:
-        admin = False
-
     for i in pairSelect:
         perStudent = Student.objects.filter(pk = i.idstudent.idstudent)
         studentLst.append(perStudent[0])
@@ -51,26 +41,11 @@ def tutorview(request):
             coopChange = updateCS(coop, student)
             profChange = updatePS(prof, student)
             updateSession(rpt, pair, profChange, coopChange)
-            if admin == True:
-                return render(request, 'studentrpt.html', {'students': studentLst, 'admin': True})
-            else:
-                return render(request, 'studentrpt.html', {'students': studentLst, 'admin': False})
+            return render(request, 'studentrpt.html', {'students' : studentLst})
         else:
-            if admin == True:
-                return render(request, 'studentrpt.html', {'students': studentLst, 'admin': True})
-            else:
-                return render(request, 'studentrpt.html', {'students': studentLst, 'admin': False})
+            return render(request, 'studentrpt.html', {'students': studentLst})
     else:
-        if admin == True:
-            return render(request, 'studentrpt.html', {'students' : studentLst, 'admin' :True})
-        else:
-            return render(request, 'studentrpt.html', {'students' : studentLst, 'admin' :False})
-
-def renderRpt(studentLst, admin):
-    if admin == True:
-        return render(request, 'studentrpt.html', {'students': studentLst, 'admin': True})
-    else:
-        return render(request, 'studentrpt.html', {'students': studentLst, 'admin': False})
+        return render(request, 'studentrpt.html', {'students' : studentLst})
 
 def getPairID(student, tutor):
     '''queries database with student and tutor and returns the pair ID'''
@@ -92,6 +67,7 @@ def updateSession(rpt, pair, profchange, coopchange):
     except:
         sessionObj = Session.objects.filter(idpair = pair, date = ddmmyyyy)
         sessionObj.update(progressreport = rpt, profchange = profchange, coopchange = coopchange)
+    print("SUCCESS")
     return None
 
 def updateCS(newScore, student):
