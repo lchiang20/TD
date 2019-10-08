@@ -85,8 +85,8 @@ DATABASES = {
      'NAME': 'lchiang20',
      'USER': 'lchiang20',
      'PASSWORD': 'TutoringDragons1234',
-     'HOST': 'localhost',
-     'Port': '',
+     'HOST': 'srvr-ustudentlab.ssis.edu.vn',
+     'Port': '3306',
  }
 }
 
