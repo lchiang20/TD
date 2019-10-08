@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4fb07352-b678-4434-8dcc-1503007500d4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/assets/admin/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TutoringDragons/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/TutoringDragons/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminview/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminview/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/InitialiseTD.sql" beforeDir="false" afterPath="$PROJECT_DIR$/static/InitialiseTD.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/admin/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/admin/css/admin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/admin/css/studentrpt.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/admin/css/studentrpt.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/assets/admin/css/welcome.css" beforeDir="false" afterPath="$PROJECT_DIR$/adminview/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/adminview.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/adminview.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/studentrpt.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/studentrpt.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorview/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/tutorview/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorview/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tutorview/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorview/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tutorview/templates/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -89,6 +78,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -192,6 +182,8 @@
       <workItem from="1569289373450" duration="4025000" />
       <workItem from="1569729703568" duration="33469000" />
       <workItem from="1570352775938" duration="8782000" />
+      <workItem from="1570517463565" duration="147000" />
+      <workItem from="1570517727561" duration="49000" />
     </task>
     <task id="LOCAL-00001" summary="Reinforced report integrity, started adminview">
       <created>1569864095369</created>
