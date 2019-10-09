@@ -1,7 +1,7 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <script src="{%  static 'assets/admin/js/welcome.js' %}"></script>
-<link rel="stylesheet" type="text/css" href="{%  static 'assets/admin/css/welcome.css' %}">
+<link rel="stylesheet" type="text/css" href="{%  static 'assets/admin/css/index.css' %}">
 
 
 
@@ -35,9 +35,7 @@
             console.log('Name: ' + profile.getName());
             console.log('Image URL: ' + profile.getImageUrl());
             console.log('email:  ' + profile.getEmail());
-            email = profile.getEmail()); // This is null if the 'email' scope is not present.
-        alert('ID: ' + profile.getId() + '\nName: ' + profile.getName() + '\nImage URL: ' + profile.getImageUrl() + '\nEm
-            ail: ' + profile.getEmail());
+            email = profile.getEmail(); // This is null if the 'email' scope is not present.
             document.getElementById("remail").innerHTML = email; document.write(email);
         }
 
