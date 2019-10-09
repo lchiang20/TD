@@ -1,31 +1,19 @@
-{% load staticfiles %}
+{%  load staticfiles %}
 <!DOCTYPE html>
 <script src="{%  static 'assets/admin/js/welcome.js' %}"></script>
 <link rel="stylesheet" type="text/css" href="{%  static 'assets/admin/css/index.css' %}">
 
 
+<div class="login-page">
+  <div class="form">
+    <head>
 
-<html>
+        <meta name="google-signin-client_id" content="844447968069-sll1lj94217jbntgvtqcm3s2fnan4prt.apps.googleusercontent.com">
 
-<head>
-    <style>
-        p {
-            text-align: center
-        }
-        
-        ;
-    </style>
+    </head>
 
-    <meta name="google-signin-client_id" content="844447968069-sll1lj94217jbntgvtqcm3s2fnan4prt.apps.googleusercontent.com">
-
-</head>
-
-<body>
-    Hello, this is a test word
 
     <div class="g-signin2" data-onsuccess="onSignIn"></div>
-
-
 
     <script>
         function onSignIn(googleUser) {
@@ -51,19 +39,21 @@
                 gapi.auth2.init();
             });
         }
+
+
     </script>
     <a href="#" onclick="signOut();">Sign out</a>
 
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
 
     <p>
-        '
         <form action="" method="POST">{% csrf_token %}
             <select id="email" name='email'>
-            <option><span id = "remail"></span></option>
-            <script>document.getElementById("email").style.display = "none";</script>
-        </select>
+                <option><span id = "remail"></span></option>
+                <script>document.getElementById("email").style.display = "none";</script>
+            </select>
+        </form>
     </p>
-</body>
 
-</html>
+  </div>
+</div>
