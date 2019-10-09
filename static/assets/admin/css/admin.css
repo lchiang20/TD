@@ -3,13 +3,8 @@ body, html {
 }
 
 
-.admin-text {
-  position: relative;
-  text-align: right;
-}
-
 a:link, a:visited {
-  background-color: #f44336;
+  background-color: #5b80b2;
   color: white;
   padding: 15px 25px;
   text-align: center;
@@ -18,7 +13,7 @@ a:link, a:visited {
 }
 
 a:hover, a:active {
-  background-color: red;
+  background-color: #5b80b2;
 }
 
 /* The banner */
@@ -50,7 +45,7 @@ a:hover, a:active {
 .tab {
   float: left;
   border: 1px solid #ccc;
-  background-color: #add8e6;
+  background-color: #7494be;
   width: 30%;
   height: 60%;
   overflow: scroll;
@@ -82,7 +77,7 @@ a:hover, a:active {
 
 .choice-items {
   position: absolute;
-  background-color: #b3e6ff;
+  background-color: #7494be;
   top: 100%;
   left: 0;
   right: 0;
@@ -90,7 +85,7 @@ a:hover, a:active {
 }
 /* Change background color of buttons on hover */
 .tab button:hover {
-  background-color: #7494be;
+  background-color: #5b80b2;
 }
 
 /* Create an active/current "tab button" class */
@@ -114,16 +109,7 @@ a:hover, a:active {
 }
 
 /* The alert message box */
-.alert {
-  padding: 20px;
-  background-color: #f44336; /* Red */
-  color: white;
-  margin-bottom: 15px;
-  opacity: 1;
-  transition: opacity 0.6s; /* 600ms to fade out */
-  z-index: = -1;
-  position:relative
-}
+
 
 /* The close button */
 .closebtn {
@@ -139,7 +125,7 @@ a:hover, a:active {
 
 /* When moving the mouse over the close button */
 .closebtn:hover {
-  color: black;
+  color: white;
 }
 
 
@@ -153,7 +139,7 @@ a:hover, a:active {
 }
 
 .select-selected {
-  background-color: DodgerBlue;
+  background-color: #5b80b2;
 }
 
 /* Style the arrow inside the select element: */
@@ -186,7 +172,7 @@ a:hover, a:active {
 /* Style items (options): */
 .select-items {
   position: absolute;
-  background-color: DodgerBlue;
+  background-color: #5b80b2;
   top: 100%;
   left: 0;
   right: 0;
@@ -244,4 +230,72 @@ a:hover, a:active {
 
 .box select option {
   padding: 10px;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #7494be;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #7494be;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #5b80b2;
+  color: white;
+}
+
+.topnav .search-container {
+  float: right;
+}
+
+.topnav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.topnav .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.topnav .search-container button:hover {
+  background: #5b80b2;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav .search-container {
+    float: none;
+  }
+  .topnav a, .topnav input[type=text], .topnav .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;
+  }
 }
