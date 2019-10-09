@@ -79,6 +79,16 @@ WSGI_APPLICATION = 'apps.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+# DATABASES = {
+#  'default': {
+#      'ENGINE': 'django.db.backends.mysql',
+#      'NAME': 'lchiang20',
+#      'USER': 'lchiang20',
+#      'PASSWORD': 'TutoringDragons1234',
+#      'HOST': 'srvr-ustudentlab.ssis.edu.vn',
+#      'Port': '3306',
+#  }
+# }
 DATABASES = {
  'default': {
      'ENGINE': 'django.db.backends.mysql',
