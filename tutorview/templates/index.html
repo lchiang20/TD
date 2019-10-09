@@ -24,7 +24,7 @@
             console.log('Image URL: ' + profile.getImageUrl());
             console.log('email:  ' + profile.getEmail());
             email = profile.getEmail(); // This is null if the 'email' scope is not present.
-            document.getElementById("remail").innerHTML = email; document.write(email);
+            document.write(email);
         }
 
         function signOut() {
