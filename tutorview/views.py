@@ -7,22 +7,36 @@ from django.template import RequestContext
 from django.http import HttpResponse
 # Create your views here.
 def index(request, indexurl = ''):
-    return render(request, 'index.html')
+    if request.POST.get('email'):
+        request.session['email'] = request.POST.get('email')
+        return render(request, 'studentrpt.html')
+    else:
+        return render(request, 'index.html')
 
 def adminview(request):
-    return render(request, 'adminview.html')
+    studentLst = Student.objects.all()
+    tutorLst = Tutor.objects.all()
+    sessionLst = []
+    for i in Session.objects.all():
+        sessionLst.append(i)
+    list.reverse(sessionLst)
+    return render(request, 'adminview.html', {'sessions': sessionLst, 'tutors':tutorLst, 'students':studentLst})
 
 def studentview(request):
-    return render(request, 'studentrpt.html')
-
-# Create your views here.
-# @ensure_csrf_cookie
-def tutorview(request):
     ## TEST VALUE
-    email = request.session['email']
+    email = "lchiang20@ssis.edu.vn"
+    #email = request.session['email']
     tutor = Tutor.objects.filter(email__exact = email)[0].idtutor
+    #tutor = 2
     pairSelect = Pair.objects.filter(idtutor__exact = tutor)
     studentLst = []
+
+    #check of user is admin
+    if Tutor.objects.filter(pk=tutor)[0].admin == 1:
+        admin = True
+    else:
+        admin = False
+
     for i in pairSelect:
         perStudent = Student.objects.filter(pk = i.idstudent.idstudent)
         studentLst.append(perStudent[0])
@@ -41,11 +55,26 @@ def tutorview(request):
             coopChange = updateCS(coop, student)
             profChange = updatePS(prof, student)
             updateSession(rpt, pair, profChange, coopChange)
-            return render(request, 'studentrpt.html', {'students' : studentLst})
+            if admin == True:
+                return render(request, 'studentrpt.html', {'students': studentLst, 'admin': True})
+            else:
+                return render(request, 'studentrpt.html', {'students': studentLst, 'admin': False})
         else:
-            return render(request, 'studentrpt.html', {'students': studentLst})
+            if admin == True:
+                return render(request, 'studentrpt.html', {'students': studentLst, 'admin': True})
+            else:
+                return render(request, 'studentrpt.html', {'students': studentLst, 'admin': False})
     else:
-        return render(request, 'studentrpt.html', {'students' : studentLst})
+        if admin == True:
+            return render(request, 'studentrpt.html', {'students' : studentLst, 'admin' :True})
+        else:
+            return render(request, 'studentrpt.html', {'students' : studentLst, 'admin' :False})
+
+def renderRpt(studentLst, admin):
+    if admin == True:
+        return render(request, 'studentrpt.html', {'students': studentLst, 'admin': True})
+    else:
+        return render(request, 'studentrpt.html', {'students': studentLst, 'admin': False})
 
 def getPairID(student, tutor):
     '''queries database with student and tutor and returns the pair ID'''
@@ -67,7 +96,6 @@ def updateSession(rpt, pair, profchange, coopchange):
     except:
         sessionObj = Session.objects.filter(idpair = pair, date = ddmmyyyy)
         sessionObj.update(progressreport = rpt, profchange = profchange, coopchange = coopchange)
-    print("SUCCESS")
     return None
 
 def updateCS(newScore, student):
@@ -110,4 +138,52 @@ def updatePS(newScore, idstudent):
     cpChange = result - oldScore
     Student.objects.filter(pk=idstudent).update(profscore = result)
     return cpChange
+
+def rptSearch(keyword):
+    rptLst = Session.objects.all()
+    ##Two dimensional array that stores sentence with keyword and the primary key of the Session (idpair + date)
+    result = []
+    for i in rptLst:
+        rpt = i.progressreport
+        ## Split sentence
+        sentences = splitSentence(rpt)
+        ## Extracts words
+        extract = wordinSentence(sentences, keyword)
+        result.append([extract, rptLst[i], rptLst[i].idpair])
+
+
+
+def splitSentence(rpt):
+    '''
+    Takes any given string and returns a list where each element is a sentence from the original string
+    '''
+    endPunct = ['.', '!', '?']
+    indices = [0]
+    ## find indices of end punctuations
+    for i in endPunct:
+        ends = [j for j,  k in enumerate(rpt) if k == i]
+        indices.extend(ends)
+    indices.sort()
+
+    ## splits the string by index locations
+    sentences = []
+    for i in range(len(indices) - 1):
+        firstIndex = indices[i]
+        secondIndex = indices[i+1]
+        sentences.append(rpt[firstIndex:secondIndex+1])
+    return sentences
+
+def wordinSentence(sentences, word):
+    '''
+    :param sentence: list of sentences
+    :return: list of sentence with the keywords in it
+    '''
+    result = []
+    for i in sentences:
+        if word in i:
+            result.append(i)
+    return result
+
+
+
 
