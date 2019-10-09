@@ -12,7 +12,14 @@
 
     </head>
 
-
+    <p>
+        <form action="" method="POST">{% csrf_token %}
+            <select id="email" name='email'>
+                <option><span id = "remail"></span></option>
+                <script>document.getElementById("email").style.display = "none";</script>
+            </select>
+        </form>
+    </p>
     <div class="g-signin2" data-onsuccess="onSignIn"></div>
 
     <script>
@@ -24,7 +31,7 @@
             console.log('Image URL: ' + profile.getImageUrl());
             console.log('email:  ' + profile.getEmail());
             email = profile.getEmail(); // This is null if the 'email' scope is not present.
-            document.write(email);
+            document.getElementById("remail").innerHTML = email; document.write(email);
         }
 
         function signOut() {
@@ -46,14 +53,6 @@
 
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
 
-    <p>
-        <form action="" method="POST">{% csrf_token %}
-            <select id="email" name='email'>
-                <option><span id = "remail"></span></option>
-                <script>document.getElementById("email").style.display = "none";</script>
-            </select>
-        </form>
-    </p>
 
   </div>
 </div>
