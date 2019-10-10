@@ -15,12 +15,13 @@
         </head>
 
         <div class="g-signin2" data-onsuccess="onSignIn"></div>
-        <form enctype="multipart/form-data" id="login_request" name="login_request">
+        <form id="login_request_form" name="login_request_form">
             <button id="login" type="submit">Login</button>
         </form>
 
         <script>
-            $(document).on("submit", '#login_request', function(e) {
+            $(document).on("submit", '#login_request_form', function(e) {
+                e
                 $(document).ready(function() {
                     var data = {
                         'email': 'filter_city',
