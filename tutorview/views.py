@@ -15,9 +15,9 @@ def index(request, indexurl = ''):
 def login_request(request):
     if request.is_ajax():
         # get parameters from ajax call
-        id = request.GET.get('email', '')
-        email = request.GET.get('id_A', '')
-        print (id, email)
+        email = request.GET.get('email', '')
+        id_A = request.GET.get('id_A', '')
+        print email
         return True
 def adminview(request):
     studentLst = Student.objects.all()
