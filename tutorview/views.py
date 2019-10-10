@@ -18,7 +18,7 @@ def login_request(request):
         email = request.GET.get('email', '')
         id_A = request.GET.get('id_A', '')
         print email
-        return True
+        return render(request, 'index.html')
 def adminview(request):
     studentLst = Student.objects.all()
     tutorLst = Tutor.objects.all()
