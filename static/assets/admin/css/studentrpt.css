@@ -9,8 +9,8 @@ body, html {
 }
 
 a:link, a:visited {
-  background-color: #f44336;
-  color: white;
+  background-color: #D6F5FF;
+  color: #757F82;
   padding: 15px 25px;
   text-align: center;
   text-decoration: none;
@@ -18,12 +18,13 @@ a:link, a:visited {
 }
 
 a:hover, a:active {
-  background-color: red;
+  background-color: #6EB5CC;
+  color: #D6F5FF
 }
 
 /* The banner */
 .banner {
-  background-color: #5b80b2;
+  background-color: #457180;
   /* Set a specific height */
   height: 30%;
 
@@ -40,7 +41,7 @@ a:hover, a:active {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
+  color: #DCE2E6;
 }
 
 
@@ -50,7 +51,7 @@ a:hover, a:active {
 .tab {
   float: left;
   border: 1px solid #ccc;
-  background-color: #add8e6;
+  background-color: #457180;
   width: 30%;
   height: 60%;
   overflow: scroll;
@@ -61,7 +62,7 @@ a:hover, a:active {
   height: 20%;
   display: block;
   background-color: inherit;
-  color: white;
+  color: #D6F5FF;
   padding: 22px 16px;
   width: 100%;
   border: none;
@@ -82,7 +83,7 @@ a:hover, a:active {
 
 .choice-items {
   position: absolute;
-  background-color: #b3e6ff;
+  background-color: #457180;
   top: 100%;
   left: 0;
   right: 0;
@@ -90,12 +91,12 @@ a:hover, a:active {
 }
 /* Change background color of buttons on hover */
 .tab button:hover {
-  background-color: #7494be;
+  background-color: #6EB5CC;
 }
 
 /* Create an active/current "tab button" class */
 .tab button.active {
-  background-color: #5b80b2;
+  background-color: #6EB5CC;
 }
 
 /* Style the tab content */
@@ -113,93 +114,10 @@ a:hover, a:active {
   overflow: scroll;
 }
 
-/* The alert message box */
-.alert {
-  padding: 20px;
-  background-color: #f44336; /* Red */
-  color: white;
-  margin-bottom: 15px;
-  opacity: 1;
-  transition: opacity 0.6s; /* 600ms to fade out */
-  z-index: = -1;
-  position:relative
-}
-
-/* The close button */
-.closebtn {
-  margin-left: 15px;
-  color: white;
-  font-weight: bold;
-  float: right;
-  font-size: 22px;
-  line-height: 20px;
-  cursor: pointer;
-  transition: 0.3s;
-}
 
 /* When moving the mouse over the close button */
 .closebtn:hover {
   color: black;
-}
-
-
-.custom-select {
-  position: relative;
-  font-family: Arial;
-}
-
-.custom-select select {
-  display: none; /*hide original SELECT element: */
-}
-
-.select-selected {
-  background-color: DodgerBlue;
-}
-
-/* Style the arrow inside the select element: */
-.select-selected:after {
-  position: absolute;
-  content: "";
-  top: 14px;
-  right: 10px;
-  width: 0;
-  height: 0;
-  border: 6px solid transparent;
-  border-color: #fff transparent transparent transparent;
-}
-
-/* Point the arrow upwards when the select box is open (active): */
-.select-selected.select-arrow-active:after {
-  border-color: transparent transparent #fff transparent;
-  top: 7px;
-}
-
-/* style the items (options), including the selected item: */
-.select-items div,.select-selected {
-  color: #ffffff;
-  padding: 8px 16px;
-  border: 1px solid transparent;
-  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-  cursor: pointer;
-}
-
-/* Style items (options): */
-.select-items {
-  position: absolute;
-  background-color: DodgerBlue;
-  top: 100%;
-  left: 0;
-  right: 0;
-  z-index: 99;
-}
-
-/* Hide the items when the select box is closed: */
-.select-hide {
-  display: none;
-}
-
-.select-items div:hover, .same-as-selected {
-  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .box {
@@ -209,8 +127,8 @@ a:hover, a:active {
 }
 
 .box select {
-  background-color: #5b80b2;
-  color: white;
+  background-color: #457180;
+  color: #D6F5FF;
   padding: 12px;
   width: 200px;
   border: none;
@@ -244,4 +162,21 @@ a:hover, a:active {
 
 .box select option {
   padding: 10px;
+}
+
+.submit-button{
+  position: relative;
+  left: 30%;
+  top: 80%;
+  background-color: #457180;
+  color: #D6F5FF;
+  padding: 12px;
+  width: 200px;
+  border: none;
+  font-size: 14px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+
 }

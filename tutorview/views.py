@@ -17,7 +17,7 @@ def login_request(request):
         # get parameters from ajax call
         id = request.GET.get('id', '')
         email = request.GET.get('email', '')
-        print id, email
+        print (id, email)
 def adminview(request):
     studentLst = Student.objects.all()
     tutorLst = Tutor.objects.all()
