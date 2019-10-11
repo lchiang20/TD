@@ -31,7 +31,7 @@
                     processData: false,
                     contentType: false,
                     url: '/studentview/',
-                    data: email,
+                    data: email.val(),
                     type: 'POST',
                     success: function(response) { // Go through appliction if does work then prints
                         console.log("it works, God save the Queen!");

@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4fb07352-b678-4434-8dcc-1503007500d4" name="Default Changelist" comment="Reinforced report integrity, started adminview">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tutorview/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tutorview/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tutorview/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tutorview/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -185,7 +183,7 @@
       <workItem from="1570352775938" duration="8782000" />
       <workItem from="1570517463565" duration="147000" />
       <workItem from="1570517727561" duration="11369000" />
-      <workItem from="1570784202439" duration="6004000" />
+      <workItem from="1570784202439" duration="6078000" />
     </task>
     <task id="LOCAL-00001" summary="Reinforced report integrity, started adminview">
       <created>1569864095369</created>
