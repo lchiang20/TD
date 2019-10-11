@@ -41,7 +41,7 @@
                     'email': 'filter_city',
                     'id_A': "FGDKJ"
                 };
-             var token =  $('{%  csrf_token %}').attr('value')
+             var token =  $({%  csrf_token %}).attr('value')
                 $.ajaxSetup({
                     beforeSend: function(xhr) {
                         xhr.setRequestHeader('Csrf-Token', token);
