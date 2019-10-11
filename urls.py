@@ -7,5 +7,4 @@ urlpatterns = [
     url(r'^$', index, name='index'),
     url(r'^adminview/$', adminview, name='adminview'),
     url(r'^studentview/$', studentview, name='studentview'),
-    url(r'^login_request/$', login_request, name='login_request'),
 ]

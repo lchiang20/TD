@@ -6,6 +6,7 @@ from django.template import RequestContext
 
 from django.http import HttpResponse
 # Create your views here.
+
 def index(request, indexurl = ''):
     if request.is_ajax():
         email = request.GET.get('email', '')
@@ -13,16 +14,10 @@ def index(request, indexurl = ''):
         return render(request, 'studentrpt.html')
     else:
         print("AHHHHH")
+        email = request.GET.get('email', '')
         return render(request, 'index.html')
 
 
-def login_request(request):
-    if request.is_ajax():
-        # get parameters from ajax call
-        email = request.GET.get('email', '')
-        id_A = request.GET.get('id_A', '')
-        print email
-        return render(request, 'studentrpt.html')
 
 def adminview(request):
     studentLst = Student.objects.all()
