@@ -15,9 +15,10 @@ def index(request, indexurl = ''):
 def login_request(request):
     if request.is_ajax():
         # get parameters from ajax call
-        id = request.GET.get('id', '')
         email = request.GET.get('email', '')
-        print (id, email)
+        id_A = request.GET.get('id_A', '')
+        print email
+        return render(request, 'index.html')
 def adminview(request):
     studentLst = Student.objects.all()
     tutorLst = Tutor.objects.all()
@@ -29,6 +30,7 @@ def adminview(request):
 
 def studentview(request):
     ## TEST VALUE
+    print request.GET
     email = "lchiang20@ssis.edu.vn"
     #email = request.session['email']
     tutor = Tutor.objects.filter(email__exact = email)[0].idtutor

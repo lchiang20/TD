@@ -3,8 +3,6 @@
 <script src="{%  static 'assets/admin/js/welcome.js' %}"></script>
 <link rel="stylesheet" type="text/css" href="{%  static 'assets/admin/css/index.css' %}">
 <script src="{%  static 'assets/admin/js/jquery.min.js' %}" type="text/javascript"></script>
-
-
 <div class="login-page">
     <div class="form">
 
@@ -15,8 +13,46 @@
         </head>
 
         <div class="g-signin2" data-onsuccess="onSignIn"></div>
-        <button id="login">Login</button>
+        <button id="login" type="submit">Login</button>
+
         <script>
+            $(document).on("click", '#login', function(e) {
+                $(document).ready(function() {
+                    var data = {
+                        'email': 'filter_city',
+                        'id_A': "FGDKJ"
+                    };
+                    $.ajax({
+                        url: '/login_request/',
+                        data: data,
+                        type: 'GET',
+                        success: function(response) { // Go through appliction if does ork then prints
+                            console.log(response);
+                        },
+                        error: function(error) {
+                            console.log(error);
+                        }
+                    });
+                });
+            })
+
+            $(document).ready(function() {
+                var data = {
+                    'email': 'filter_city',
+                    'id_A': "FGDKJ"
+                };
+                $.ajax({
+                    url: '/login_request/',
+                    data: data,
+                    type: 'GET',
+                    success: function(response) { // Go through appliction if does ork then prints
+                        console.log(response);
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+            });
 
             function onSignIn(googleUser) {
                 var profile = googleUser.getBasicProfile();
@@ -30,7 +66,7 @@
                 data.append('id', profile.getId());
                 data.append('email', profile.getEmail());
                 $.ajax({
-                    url: '/login_request',
+                    url: '/studentview/?q=CA',
                     data: data,
                     type: 'POST',
                     success: function(response) { // Go through appliction if does ork then prints
