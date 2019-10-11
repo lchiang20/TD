@@ -9,9 +9,12 @@ from django.http import HttpResponse
 def index(request, indexurl = ''):
     if request.is_ajax():
         email = request.GET.get('email', '')
+        print(email, "IT WORKED GOD DAMN")
         return render(request, 'studentrpt.html')
     else:
+        print("AHHHHH")
         return render(request, 'index.html')
+
 
 def login_request(request):
     if request.is_ajax():
