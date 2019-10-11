@@ -39,14 +39,9 @@
             $(document).ready(function() {
                 var data = {
                     'email': 'filter_city',
-                    'id_A': "FGDKJ"
+                    'id_A': "FGDKJ",
+                    'CSRF':{% csrf_token %}
                 };
-             var token =  $({%  csrf_token %}).attr('value')
-                $.ajaxSetup({
-                    beforeSend: function(xhr) {
-                        xhr.setRequestHeader('Csrf-Token', token);
-                    }
-                });
                 $.ajax({
                     url: '/login_request/',
                     data: data,
