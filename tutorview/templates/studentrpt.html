@@ -43,7 +43,6 @@
             <option>{{ student.idstudent }}</option>
         </select>
             <textarea rows = '8' cols = '100' name = "report"></textarea>
-            <input type="submit" value="Submit"/>
             <div class = "box">
                 <select id = "profScore" name = "profScore" class = "choice">
                     <option value="" selected disabled hidden>Proficiency</option>
@@ -77,6 +76,8 @@
                     <option>10</option>
                 </select>
             </div>
+        <input type="submit" value="Submit" class = "submit-button"/>
+
     </form>
 </div>
 {% endfor %}

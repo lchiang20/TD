@@ -56,20 +56,17 @@
 
             function onSignIn(googleUser) {
                 var profile = googleUser.getBasicProfile();
-                var email;
                 console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
                 console.log('Name: ' + profile.getName());
                 console.log('Image URL: ' + profile.getImageUrl());
-                console.log('email:  ' + profile.getEmail());
-                email = profile.getEmail(); // This is null if the 'email' scope is not present.
-                let data = new FormData();
+                console.log('email:  ' + profile.getEmail());let data = new FormData();
                 data.append('id', profile.getId());
                 data.append('email', profile.getEmail());
                 $.ajax({
                     url: '/studentview/?q=CA',
                     data: data,
                     type: 'POST',
-                    success: function(response) { // Go through appliction if does ork then prints
+                    success: function(response) { // Go through appliction if does work then prints
                         console.log(response);
                     },
                     error: function(error) {
