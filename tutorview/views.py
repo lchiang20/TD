@@ -15,6 +15,7 @@ def index(request, indexurl = ''):
     else:
         print("AHHHHH")
         email = request.GET.get('email', '')
+        print(email)
         return render(request, 'index.html')
 
 

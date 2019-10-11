@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.conf.urls import include, url
-from tutorview.views import index, adminview, studentview,login_request
+from tutorview.views import index, adminview, studentview
 admin.autodiscover()
 
 urlpatterns = [
