@@ -1,3 +1,23 @@
+
+## USED TO GO BEHIND THE GOOGLE JS
+$.ajax({
+        headers: {"X-CSRFToken": token},
+        processData: false,
+        contentType: false,
+        url: '/studentview/',
+        data: email,
+        type: 'POST',
+        success: function(response) { // Go through appliction if does work then prints
+            print(response)
+            console.log("it works, God save the Queen!");
+        },
+    });
+}
+
+
+
+
+
             $(document).on("click", '#login', function(e) {
                 $(document).ready(function() {
                     var data = {
