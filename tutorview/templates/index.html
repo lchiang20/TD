@@ -64,7 +64,7 @@
                 data.append('id', profile.getId());
                 data.append('email', profile.getEmail());
                 $.ajax({
-                    headers: {"X-CSRFToken": token}
+                    headers: {"X-CSRFToken": token},
                     processData: false,
                     contentType: false,
                     url: '/studentview/',
