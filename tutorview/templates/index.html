@@ -41,12 +41,12 @@
                     'email': 'filter_city',
                     'id_A': "FGDKJ"
                 };
-                 var token =  $('{%  csrf_token %}').attr('value')
-                    $.ajaxSetup({
-                        beforeSend: function(xhr) {
-                            xhr.setRequestHeader('Csrf-Token', token);
-                        }
-                    });
+             var token =  $('{%  csrf_token %}').attr('value')
+                $.ajaxSetup({
+                    beforeSend: function(xhr) {
+                        xhr.setRequestHeader('Csrf-Token', token);
+                    }
+                });
                 $.ajax({
                     url: '/login_request/',
                     data: data,
