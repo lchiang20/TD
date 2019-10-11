@@ -9,7 +9,6 @@ from django.http import HttpResponse
 def index(request, indexurl = ''):
     if request.is_ajax():
         email = request.GET.get('email', '')
-        request.session['email'] = email
         return render(request, 'studentrpt.html')
     else:
         return render(request, 'index.html')
