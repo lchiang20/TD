@@ -12,13 +12,15 @@ def index(request, indexurl = ''):
         return render(request, 'studentrpt.html')
     else:
         return render(request, 'index.html')
+
 def login_request(request):
     if request.is_ajax():
         # get parameters from ajax call
         email = request.GET.get('email', '')
         id_A = request.GET.get('id_A', '')
         print email
-        return render(request, 'index.html')
+        return render(request, 'studentrpt.html')
+
 def adminview(request):
     studentLst = Student.objects.all()
     tutorLst = Tutor.objects.all()
