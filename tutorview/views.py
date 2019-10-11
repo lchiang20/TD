@@ -6,10 +6,12 @@ from django.template import RequestContext
 
 from django.http import HttpResponse
 # Create your views here.
-def index(request):
+def index(request, indexurl = ''):
     if request.is_ajax():
         email = request.GET.get('email', '')
-        print('it worked on this end', email)
+        return render(request, 'studentrpt.html')
+    else:
+        return render(request, 'index.html')
 
 def login_request(request):
     if request.is_ajax():
