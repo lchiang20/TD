@@ -16,7 +16,7 @@ def index(request):
         print("AHHHHH")
         email = request.POST.get('email')
         print(email)
-        return email
+        return render(request, 'index.html')
 
 
 
