@@ -10,12 +10,12 @@ from django.http import HttpResponse
 def index(request):
 
     if request.POST:
-        email = request.POST.get('email')
+        email = request.POST.getList('email')[0]
         print(email, "IT WORKED GOD DAMN")
         return render(request, 'studentrpt.html')
     else:
         print("AHHHHH")
-        email = request.POST.get('mail')
+        email = request.POST.getList('email')[0]
         print(email)
         return render(request, 'index.html')
 
