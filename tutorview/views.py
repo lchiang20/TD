@@ -8,8 +8,7 @@ from django.http import HttpResponse
 # Create your views here.
 
 def index(request):
-    print(request.method.POST)
-    print(request.POST)
+
     if request.POST:
         email = request.POST.get('email')
         print(email, "IT WORKED GOD DAMN")
