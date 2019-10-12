@@ -15,7 +15,7 @@ def index(request):
         return render(request, 'studentrpt.html')
     else:
         print("AHHHHH")
-        email = request.POST.get('email')
+        email = request.POST.get('mail')
         print(email)
         return render(request, 'index.html')
 
