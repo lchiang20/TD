@@ -8,13 +8,13 @@ from django.http import HttpResponse
 # Create your views here.
 
 def index(request, indexurl = ''):
-    if request.is_ajax():
-        email = request.GET.get('email', '')
+    if request.method == 'POST':
+        email = request.POST.get('email', None)
         print(email, "IT WORKED GOD DAMN")
         return render(request, 'studentrpt.html')
     else:
         print("AHHHHH")
-        email = request.GET.get('email')
+        email = request.POST.get('email', None)
         print(email)
         return render(request, 'index.html')
 
