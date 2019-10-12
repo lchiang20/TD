@@ -8,7 +8,7 @@ from django.http import HttpResponse
 # Create your views here.
 
 def index(request):
-    if request.method == 'POST':
+    if request.POST:
         email = request.POST.get('email')
         print(email, "IT WORKED GOD DAMN")
         return render(request, 'studentrpt.html')
@@ -16,7 +16,7 @@ def index(request):
         print("AHHHHH")
         email = request.POST.get('email')
         print(email)
-        return render(request, 'studentrpt.html')
+        return email
 
 
 
