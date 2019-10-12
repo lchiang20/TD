@@ -7,7 +7,7 @@ from django.template import RequestContext
 from django.http import HttpResponse
 # Create your views here.
 
-def index(request, indexurl = ''):
+def index(request):
     if request.method == 'POST':
         email = request.POST.get('email', None)
         print(email, "IT WORKED GOD DAMN")
