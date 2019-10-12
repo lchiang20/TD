@@ -9,14 +9,14 @@ from django.http import HttpResponse
 
 def index(request):
     if request.method == 'POST':
-        email = request.POST.get('email', None)
+        email = request.POST.get('email')
         print(email, "IT WORKED GOD DAMN")
         return render(request, 'studentrpt.html')
     else:
         print("AHHHHH")
-        email = request.POST.get('email', None)
+        email = request.POST.get('email')
         print(email)
-        return render(request, 'index.html')
+        return render(request, 'index.html', {'email})
 
 
 
@@ -31,7 +31,6 @@ def adminview(request):
 
 def studentview(request):
     ## TEST VALUE
-    print request.GET
     email = "lchiang20@ssis.edu.vn"
     #email = request.session['email']
     tutor = Tutor.objects.filter(email__exact = email)[0].idtutor
