@@ -14,12 +14,19 @@
 
         <div class="g-signin2" data-onsuccess="onSignIn"></div>
         <div class = "button">
-          {% if success == True %}
-              <a href = '/studentview/'>Proceed</a>
-          {% endif %}
+            <a href = '/studentview/' onload = "hideButton()">Proceed</a>
         </div>
         <script>
 
+            function hideButton() {
+              var x = document.getElementById("button");
+              x.style.display = "none"
+            }
+
+            function showButton(){
+              var x = document.getElementById("button");
+              x.style.display = "none"
+            }
 
             function onSignIn(googleUser) {
                 var profile = googleUser.getBasicProfile();
@@ -36,6 +43,7 @@
                     type: 'POST',
                     success: function(response) { // Go through application if does work then prints
                         console.log("it works, God save the Queen!");
+
                     },
                 });
             }
