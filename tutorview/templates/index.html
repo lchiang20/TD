@@ -13,8 +13,11 @@
         </head>
 
         <div class="g-signin2" data-onsuccess="onSignIn"></div>
-        <button id="Proceed" type="submit">Proceed to Report</button>
-
+        <div class = "button">
+          {% if admin == True %}
+              <a href = '/studentview/'>Proceed</a>
+          {% endif %}
+        </div>
         <script>
 
 

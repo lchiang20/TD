@@ -12,13 +12,12 @@ def index(request):
     if request.POST:
         email = request.POST.get('email')
         print(email)
-        return render(request, 'index.html')
-
+        return render(request, 'index.html', {'success': True})
     else:
         print("AHHHHH")
         email = request.POST.get('email')
         print(email)
-        return render(request, 'index.html')
+        return render(request, 'index.html', {'success': False})
 
 
 
