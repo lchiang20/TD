@@ -13,19 +13,19 @@
         </head>
 
         <div class="g-signin2" data-onsuccess="onSignIn"></div>
-
-        <button id="btn" name = 'btn' onload = hideButton() onclick="window.location.href = '/studentview/';">Proceed</button>
-
+        <div id = 'button-tab'>
+            <button id="btn" name = 'btn' onload = hideButton() onclick="window.location.href = '/studentview/';">Proceed</button>
+        </div>
 
         <script>
 
             function hideButton() {
-              var x = document.getElementById("btn");
+              var x = document.getElementById("button-tab");
               x.style.display = "none";
             }
 
             function showButton(){
-              var x = document.getElementById("btn");
+              var x = document.getElementById("button-tab");
               x.style.display = "none";
             }
 
