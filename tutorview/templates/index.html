@@ -28,7 +28,6 @@
                 console.log('email:  ' + profile.getEmail());
                 $.ajax({
                     headers: {"X-CSRFToken": token},
-                    contentType: false,
                     url: '',
                     data: {'email':mail},
                     type: 'POST',
