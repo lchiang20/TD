@@ -35,9 +35,7 @@ def adminview(request):
 def studentview(request):
     ## TEST VALUE
     email = request.session.get('email')
-    #email = request.session['email']
     tutor = Tutor.objects.filter(email__exact = email)[0].idtutor
-    #tutor = 2
     pairSelect = Pair.objects.filter(idtutor__exact = tutor)
     studentLst = []
 
