@@ -32,10 +32,6 @@
                 var profile = googleUser.getBasicProfile();
                 var token = '{{ csrf_token }}';
                 var mail = profile.getEmail()
-                console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-                console.log('Name: ' + profile.getName());
-                console.log('Image URL: ' + profile.getImageUrl());
-                console.log('email:  ' + profile.getEmail());
                 $.ajax({
                     headers: {"X-CSRFToken": token},
                     url: '',
@@ -43,7 +39,6 @@
                     type: 'POST',
                     success: function(response) { // Go through application if does work then prints
                         console.log("it works, God save the Queen!");
-
                     },
                 });
             }

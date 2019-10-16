@@ -12,6 +12,8 @@ def index(request):
     if request.POST:
         email = request.POST.get('email')
         print(email)
+        request.session['email'] = email
+
         return render(request, 'index.html', {'success': True})
     else:
         print("AHHHHH")
@@ -32,7 +34,7 @@ def adminview(request):
 
 def studentview(request):
     ## TEST VALUE
-    email = "lchiang20@ssis.edu.vn"
+    email = request.session.get('email')
     #email = request.session['email']
     tutor = Tutor.objects.filter(email__exact = email)[0].idtutor
     #tutor = 2
