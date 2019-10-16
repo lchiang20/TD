@@ -11,18 +11,25 @@
             <meta name="google-signin-client_id" content="844447968069-sll1lj94217jbntgvtqcm3s2fnan4prt.apps.googleusercontent.com">
 
         </head>
-
-        <div class="g-signin2" data-onsuccess="onSignIn"></div>
-        <div id = 'button-tab' onload = "hideButton()">
-            <button id="btn" name = 'btn'  onclick="window.location.href = '/studentview/';">Proceed</button>
-        </div>
+        <body onload = "hideButton">
+            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            <div id = 'button-tab' class = 'button-tab'>
+                <button id="btn" name = 'btn'  onclick="window.location.href = '/studentview/';">Proceed</button>
+            </div>
+        </body>
 
         <script>
 
             function hideButton() {
-              var x = document.getElementById("button-tab");
-              x.style.display = "none !important";
-              console.log("button tried to hide")
+                // Declare all variables
+              var i, tabcontent;
+
+              // Get all elements with class="tabcontent" and hide them
+              tabcontent = document.getElementsByClassName("button-tab");
+              for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+              }
+
             }
 
             function showButton(){
