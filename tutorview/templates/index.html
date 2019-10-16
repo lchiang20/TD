@@ -28,14 +28,11 @@
                 console.log('email:  ' + profile.getEmail());
                 $.ajax({
                     headers: {"X-CSRFToken": token},
-                    processData: false,
-                    contentType: false,
                     url: '',
                     data: {'email':mail},
                     type: 'POST',
                     success: function(response) { // Go through application if does work then prints
                         console.log("it works, God save the Queen!");
-                        console.log(response)
                     },
                 });
             }
