@@ -14,18 +14,19 @@
 
         <div class="g-signin2" data-onsuccess="onSignIn"></div>
 
-        <button id="btn" onload = hideButton() onclick="window.location.href = '/studentview/';">Proceed</button>
+        <button id="btn" name = 'btn' onload = hideButton() onclick="window.location.href = '/studentview/';">Proceed</button>
+
 
         <script>
 
             function hideButton() {
               var x = document.getElementById("btn");
-              x.style.display = "none"
+              x.style.display = "none";
             }
 
             function showButton(){
               var x = document.getElementById("btn");
-              x.style.display = "none"
+              x.style.display = "none";
             }
 
             function onSignIn(googleUser) {
