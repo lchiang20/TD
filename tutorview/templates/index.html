@@ -11,7 +11,7 @@
             <meta name="google-signin-client_id" content="844447968069-sll1lj94217jbntgvtqcm3s2fnan4prt.apps.googleusercontent.com">
 
         </head>
-        <body onload = "hideButton">
+        <body>
             <div class="g-signin2" data-onsuccess="onSignIn"></div>
             {% if logged == True %}
                 <div id = 'button-tab' class = 'button-tab'>
@@ -33,6 +33,7 @@
                     type: 'POST',
                     success: function(response) { // Go through application if does work then prints
                         console.log("it works, God save the Queen!");
+                        {% logged = True %}
                     },
                 });
             }
