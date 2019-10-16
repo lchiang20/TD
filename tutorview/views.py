@@ -12,7 +12,7 @@ def index(request):
     if request.POST:
         email = request.POST.get('email')
         print(email)
-        return None
+        break
     else:
         print("AHHHHH")
         email = request.POST.get('email')
