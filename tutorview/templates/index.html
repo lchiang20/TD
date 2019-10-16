@@ -21,12 +21,14 @@
 
             function hideButton() {
               var x = document.getElementById("button-tab");
-              x.style.display = "none";
+              x.style.display = "none !important";
+              console.log("button tried to hide")
             }
 
             function showButton(){
               var x = document.getElementById("button-tab");
-              x.style.display = "none";
+              x.style.display = "none !important";
+              console.log("button tried to show")
             }
 
             function onSignIn(googleUser) {
