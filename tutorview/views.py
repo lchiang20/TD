@@ -11,8 +11,9 @@ def index(request):
 
     if request.POST:
         email = request.POST.get('email')
-        print(email, "IT WORKED GOD DAMN")
-        return render(request, 'studentrpt.html')
+        print(email)
+        render(request, 'studentrpt.html')
+        return None
     else:
         print("AHHHHH")
         email = request.POST.get('email')
