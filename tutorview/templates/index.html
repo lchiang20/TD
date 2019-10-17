@@ -13,12 +13,9 @@
         </head>
         <body>
             <div class="g-signin2" data-onsuccess="onSignIn"></div>
-            {{ logged }}
-            {% if logged == True %}
-                <div id = 'button-tab' class = 'button-tab'>
-                    <button id="btn" name = 'btn'  onclick="window.location.href = '/studentview/';">Proceed</button>
-                </div>
-            {% endif %}
+            <div id = 'button-tab' class = 'button-tab'>
+                <button id="btn" name = 'btn'  onclick="window.location.href = '/studentview/';">Proceed</button>
+            </div>
         </body>
 
         <script>
@@ -34,9 +31,6 @@
                     type: 'POST',
                     success: function(response) { // Go through application if does work then prints
                         console.log("it works, God save the Queen!");
-                        console.log("{{ logged }}")
-                        console.log(response)
-                        location.href = "/studentview/"
 
                     },
                 });
