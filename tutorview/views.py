@@ -31,7 +31,7 @@ def adminview(request):
         searchType = request.POST.get('searchby')
         print(searchType)
         ## Student name
-        if searchType == 0:
+        if searchType == "0":
             name = request.POST.get('search')
             searchedLst = []
             for i in studentLst:
