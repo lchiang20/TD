@@ -41,7 +41,7 @@ def adminview(request):
             ## Gets all pair id of the requested students
             requestedPair = []
             for i in searchedLst:
-                for j in Pair.objects.filter(idstudent__exact=i)
+                for j in Pair.objects.filter(idstudent__exact=i):
                     requestedPair.append(j)
 
         for i in Session.objects.all():
