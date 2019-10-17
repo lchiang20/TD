@@ -13,12 +13,12 @@ def index(request):
         email = request.POST.get('email')
         print(email)
         request.session['email'] = email
-        return True
+        return render(request, 'index.html', {'logged': True}), True
     else:
         print("AHHHHH")
         email = request.POST.get('email')
         print(email)
-        return False
+        return render(request, dex.html', {'logged': False}'in)
 
 
 
