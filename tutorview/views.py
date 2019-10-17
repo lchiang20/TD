@@ -37,7 +37,7 @@ def adminview(request):
             for i in studentLst:
                 if name in i.firstname or name in i.lastname:
                     searchedLst.append(i.idstudent)
-            print("list of student id's: "searchedLst)
+            print("list of student id's: ", searchedLst)
 
 
             ## Gets all pair id of the requested students
@@ -46,7 +46,7 @@ def adminview(request):
                 for j in Pair.objects.filter(idstudent__exact=i):
                     requestedPair.append(j)
 
-            print("list of pair id's: " requestedPair)
+            print("list of pair id's: ", requestedPair)
 
         for i in Session.objects.all():
             if i.idpair in requestedPair:
