@@ -29,7 +29,11 @@ def adminview(request):
     for i in Session.objects.all():
         sessionLst.append(i)
     list.reverse(sessionLst)
+    if request.method  == 'POST':
+        searchType = request.POST.get('searchby')
+        print(searchType)
     return render(request, 'adminview.html', {'sessions': sessionLst, 'tutors':tutorLst, 'students':studentLst})
+
 
 def studentview(request):
     ## TEST VALUE
