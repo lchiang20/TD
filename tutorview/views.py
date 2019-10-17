@@ -18,7 +18,7 @@ def index(request):
         print("AHHHHH")
         email = request.POST.get('email')
         print(email)
-        return render(request, dex.html', {'logged': False}'in)
+        return render(request, 'index.html', {'logged': False})
 
 
 
