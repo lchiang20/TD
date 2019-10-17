@@ -131,6 +131,7 @@ a:hover, a:active {
 
 
 .custom-select {
+  position: relative;
   font-family: Arial;
 }
 
@@ -144,6 +145,7 @@ a:hover, a:active {
 
 /* Style the arrow inside the select element: */
 .select-selected:after {
+  position: absolute;
   content: "";
   top: 14px;
   right: 10px;
@@ -170,6 +172,7 @@ a:hover, a:active {
 
 /* Style items (options): */
 .select-items {
+  position: absolute;
   background-color: #457180;
   top: 100%;
   left: 0;
