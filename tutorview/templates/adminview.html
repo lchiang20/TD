@@ -21,23 +21,16 @@
     <a href = '/studentview/'>To Tutor Report</a>
     <a href = '/'>To Sign in</a>
   <div class="search-container">
-    <form action="/action_page.php">
+    <form action ="" method = "POST">{% csrf_token %}
+      <select id = "searchby" name = "searchby">
+        <option value="" selected disabled hidden>Search by...</option>
+        <option value="0">Student Name</option>
+        <option value="1">Tutor Name</option>
+        <option value="2">Date</option>
+        <option value="3">Content</option>
+      </select>
       <input type="text" placeholder="Search..." name="search">
-          <select>
-            <option value="0">Select car:</option>
-            <option value="1">Audi</option>
-            <option value="2">BMW</option>
-            <option value="3">Citroen</option>
-            <option value="4">Ford</option>
-            <option value="5">Honda</option>
-            <option value="6">Jaguar</option>
-            <option value="7">Land Rover</option>
-            <option value="8">Mercedes</option>
-            <option value="9">Mini</option>
-            <option value="10">Nissan</option>
-            <option value="11">Toyota</option>
-            <option value="12">Volvo</option>
-          </select>
+
       <button type="submit"><i class="fa fa-search"></i></button>
     </form>
 
