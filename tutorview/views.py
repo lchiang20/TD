@@ -25,7 +25,6 @@ def index(request):
 def adminview(request):
     studentLst = Student.objects.all()
     tutorLst = Tutor.objects.all()
-    pairLst = Pair.objects.all()
     sessionLst = []
 
     if request.method  == 'POST':
@@ -46,7 +45,7 @@ def adminview(request):
 
         for i in Session.objects.all():
             if i.idpair in requestedPair:
-                sessionLst.append
+                sessionLst.append(i)
         return render(request, 'adminview.html', {'sessions': sessionLst, 'tutors': tutorLst, 'students': studentLst})
 
 
