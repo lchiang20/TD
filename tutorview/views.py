@@ -25,14 +25,35 @@ def index(request):
 def adminview(request):
     studentLst = Student.objects.all()
     tutorLst = Tutor.objects.all()
+    pairLst = Pair.objects.all()
     sessionLst = []
-    for i in Session.objects.all():
-        sessionLst.append(i)
-    list.reverse(sessionLst)
-    print(request.POST.get('searchby'))
+
     if request.method  == 'POST':
         searchType = request.POST.get('searchby')
-        print(searchType)
+        ## Student name
+        if searchType == 0:
+            name = request.POST.get('search')
+            searchedLst = []
+            for i in studentLst:
+                if name in i.firstname or name in i.lastname:
+                    searchedLst.append(i.idstudent)
+
+            ## Gets all pair id of the requested students
+            requestedPair = []
+            for i in searchedLst:
+                for j in Pair.objects.filter(idstudent__exact=i)
+                    requestedPair.append(j)
+
+        for i in Session.objects.all():
+            if i.idpair in requestedPair:
+                sessionLst.append
+        return render(request, 'adminview.html', {'sessions': sessionLst, 'tutors': tutorLst, 'students': studentLst})
+
+
+    else:
+        for i in Session.objects.all():
+            sessionLst.append(i)
+        list.reverse(sessionLst)
     return render(request, 'adminview.html', {'sessions': sessionLst, 'tutors':tutorLst, 'students':studentLst})
 
 
