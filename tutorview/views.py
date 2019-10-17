@@ -29,6 +29,7 @@ def adminview(request):
     for i in Session.objects.all():
         sessionLst.append(i)
     list.reverse(sessionLst)
+    print(request.POST.get('searchby'))
     if request.method  == 'POST':
         searchType = request.POST.get('searchby')
         print(searchType)
