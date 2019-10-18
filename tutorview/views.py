@@ -23,7 +23,6 @@ def index(request):
 
 
 def adminview(request):
-    rndr = return render(request, 'adminview.html', {'sessions': sessionLst, 'tutors': tutorLst, 'students': studentLst})
     studentLst = Student.objects.all()
     tutorLst = Tutor.objects.all()
     sessionLst = []
@@ -72,13 +71,13 @@ def adminview(request):
             for i in Session.objects.all():
                 for search == i.date:
                     sessionLst.append(i):
-            return rndr
+            return render(request, 'adminview.html', {'sessions': sessionLst, 'tutors': tutorLst, 'students': studentLst})
 
         ## Content
         if searchType == '3':
             searchedLst = rptSearch(search)
 
-            return rndr
+            return render(request, 'adminview.html', {'sessions': sessionLst, 'tutors': tutorLst, 'students': studentLst})
 
 
 
@@ -86,14 +85,14 @@ def adminview(request):
         for i in Session.objects.all():
             if i.idpair in requestedPair:
                 sessionLst.append(i)
-        return rndr
+        return render(request, 'adminview.html', {'sessions': sessionLst, 'tutors': tutorLst, 'students': studentLst})
 
 
     else:
         for i in Session.objects.all():
             sessionLst.append(i)
         list.reverse(sessionLst)
-    return rndr
+    return render(request, 'adminview.html', {'sessions': sessionLst, 'tutors':tutorLst, 'students':studentLst})
 
 # i change some thing here to run success your code with student view
 def studentview(request):
