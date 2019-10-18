@@ -69,7 +69,7 @@ def adminview(request):
         if searchType == '2':
             search = int(search.lstrip('0'))
             for i in Session.objects.all():
-                for search == i.date:
+                if search == i.date:
                     sessionLst.append(i):
             return render(request, 'adminview.html', {'sessions': sessionLst, 'tutors': tutorLst, 'students': studentLst})
 
