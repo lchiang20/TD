@@ -48,6 +48,10 @@ def adminview(request):
 
             print("list of pair id's: ", requestedPair)
 
+            for i in Session.objects.all():
+                if i.idpair in requestedPair:
+                    sessionLst.append(i)
+            return render(request, 'adminview.html', {'sessions': sessionLst, 'tutors': tutorLst, 'students': studentLst})
 
         ## Tutor name
         if searchType == '1':
@@ -64,6 +68,10 @@ def adminview(request):
                     requestedPair.append(j)
 
             print("list of pair id's: ", requestedPair)
+            for i in Session.objects.all():
+                if i.idpair in requestedPair:
+                    sessionLst.append(i)
+            return render(request, 'adminview.html', {'sessions': sessionLst, 'tutors': tutorLst, 'students': studentLst})
 
         ## Date
         if searchType == '2':
@@ -77,17 +85,19 @@ def adminview(request):
         if searchType == '3':
             searchedLst = rptSearch(search)
 
+            for i in Session.objects.all():
+                for j in searchedLst[1]:
+                    if i.pk == j[0] and i.idpair = j[1]:
+                        sessionLst.append(i)
+
             return render(request, 'adminview.html', {'sessions': sessionLst, 'tutors': tutorLst, 'students': studentLst})
 
 
-
-
-        for i in Session.objects.all():
-            if i.idpair in requestedPair:
+        else:
+            for i in Session.objects.all():
                 sessionLst.append(i)
-        return render(request, 'adminview.html', {'sessions': sessionLst, 'tutors': tutorLst, 'students': studentLst})
-
-
+            list.reverse(sessionLst)
+        return render(request, 'adminview.html', {'sessions': sessionLst, 'tutors':tutorLst, 'students':studentLst})
     else:
         for i in Session.objects.all():
             sessionLst.append(i)
