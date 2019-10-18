@@ -60,23 +60,36 @@ def adminview(request):
         list.reverse(sessionLst)
     return render(request, 'adminview.html', {'sessions': sessionLst, 'tutors':tutorLst, 'students':studentLst})
 
-
+# i change some thing here to run success your code with student view
 def studentview(request):
     ## TEST VALUE
     email = request.session.get('email')
-    tutor = Tutor.objects.filter(email__exact = email)[0].idtutor
-    pairSelect = Pair.objects.filter(idtutor__exact = tutor)
+    tutor = Tutor.objects.filter(email__icontains = 'lchiang20@ssis.edu.vn').first()
+    print tutor.idtutor
+    pairs = Pair.objects.filter(idtutor = tutor.idtutor)
+    print pairs
     studentLst = []
-
+    
     #check of user is admin
-    if Tutor.objects.filter(pk=tutor)[0].admin == 1:
+    if tutor.admin == 1:
         admin = True
     else:
         admin = False
+    for pair in pairs:
+        result = {}
+        student = pair.idstudent
+        tutor = pair.idtutor
+        result['firstname'] = student.firstname
+        result['lastname'] = student.lastname
+        result['idstudent'] = student.idstudent
 
-    for i in pairSelect:
-        perStudent = Student.objects.filter(pk = i.idstudent.idstudent)
-        studentLst.append(perStudent[0])
+        # if u want to use info of tutur => u open comment
+        # tutor = pair.idtutor
+        # result['tutor_idtutor'] = tutor.idtutor
+        # result['tutor_firstname'] = tutor.firstname
+
+        studentLst.append(result)
+    print studentLst
 
     if request.method == 'POST':
         if request.POST.get('profScore') and request.POST.get('idStudent')\

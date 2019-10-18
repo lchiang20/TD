@@ -1,4 +1,4 @@
-{%  load staticfiles %}
+{% load staticfiles %}
 
 <!DOCTYPE html>
 
@@ -7,46 +7,45 @@
 
 
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Report</title>
 </head>
 <div class="banner">
-  <div class="banner-text">
-    <h1>Tutoring Dragons Report</h1>
-  </div>
+    <div class="banner-text">
+        <h1>Tutoring Dragons Report</h1>
+    </div>
 </div>
 
 <div class="topnav">
-  {% if admin == True %}
-      <a href = '/adminview/'>To Admin Page</a>
-  {% endif %}
-    <a href = '/'>To Sign in</a>
+    {% if admin == True %}
+    <a href='/adminview/'>To Admin Page</a> {% endif %}
+    <a href='/'>To Sign in</a>
 </div>
 
-<body onload= "hideStudent()">
-<p id = "greet">
+<body onload="hideStudent()">
+    <p id="greet">
 
-</p>
+    </p>
 
-<div class="tab">
-{% for student in students %}
-  <button class="tablinks"  onclick="openStudent(event, {{ student.idstudent }})">{{ student.firstname}}</button>
-{% endfor %}
+    <div class="tab">
+        {% for student in students %}
+        <button class="tablinks" onclick="openStudent(event)">{{ student.firstname}}</button> {% endfor %}
 
-</div>
+    </div>
 
 
-{% for student in students %}
-<div id={{student.idstudent }}  class="tabcontent">
-    <h3>{{student.firstname}} {{student.lastname }}</h3>
-    <form action ="" method = "POST">{% csrf_token %}
-        <select id = "idStudent" name = 'idStudent' class = "info_form">
+    {% for student in students %}
+    <div id='{{student.idstudent }}' class="tabcontent">
+        <h3>{{student.firstname}} {{student.lastname }}</h3>
+        <form action="" method="POST">{% csrf_token %}
+            <select id="idStudent" name='idStudent ' class="info_form">
             <option>{{ student.idstudent }}</option>
         </select>
-            <textarea rows = '8' cols = '100' name = "report"></textarea>
-            <div class = "box">
-                <select id = "profScore" name = "profScore" class = "choice">
+            <textarea rows='8 ' cols='100 ' name="report"></textarea>
+            <div class="box">
+                <select id="profScore" name="profScore" class="choice">
                     <option value="" selected disabled hidden>Proficiency</option>
                     <option>0</option>
                     <option>1</option>
@@ -62,8 +61,8 @@
                 </select>
             </div>
 
-            <div class = "box">
-                <select id = "coopScore" name = "coopScore" class = "choice">
+            <div class="box">
+                <select id="coopScore" name="coopScore" class="choice">
                     <option value="" selected disabled hidden>Cooperation</option>
                     <option>0</option>
                     <option>1</option>
@@ -78,11 +77,10 @@
                     <option>10</option>
                 </select>
             </div>
-        <input type="submit" value="Submit" class = "submit-button"/>
+            <input type="submit" value="Submit" class="submit-button" />
 
-    </form>
-</div>
-{% endfor %}
+        </form>
+    </div>
+    {% endfor %}
 
 </body>
-
