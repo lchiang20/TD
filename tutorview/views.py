@@ -87,7 +87,7 @@ def adminview(request):
 
             for i in Session.objects.all():
                 for j in searchedLst[1]:
-                    if i.pk == j[0] and i.idpair = j[1]:
+                    if i.pk == j[0] and i.idpair == j[1]:
                         sessionLst.append(i)
 
             return render(request, 'adminview.html', {'sessions': sessionLst, 'tutors': tutorLst, 'students': studentLst})
