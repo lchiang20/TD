@@ -23,19 +23,20 @@ def index(request):
 
 
 def adminview(request):
+    rndr = return render(request, 'adminview.html', {'sessions': sessionLst, 'tutors': tutorLst, 'students': studentLst})
     studentLst = Student.objects.all()
     tutorLst = Tutor.objects.all()
     sessionLst = []
+    search = request.POST.get('search')
 
     if request.method  == 'POST':
         searchType = request.POST.get('searchby')
         print(searchType)
         ## Student name
         if searchType == "0":
-            name = request.POST.get('search')
             searchedLst = []
             for i in studentLst:
-                if name in i.firstname or name in i.lastname:
+                if search in i.firstname or search in i.lastname:
                     searchedLst.append(i.idstudent)
             print("list of student id's: ", searchedLst)
 
@@ -48,17 +49,51 @@ def adminview(request):
 
             print("list of pair id's: ", requestedPair)
 
+
+        ## Tutor name
+        if searchType == '1':
+            searchedLst = []
+            for i in tutorLst:
+                if search in i.firstname or search in i.lastname:
+                    searchedLst.append(i.idtutor)
+            print("list of student id's: ", searchedLst)
+
+            ## Gets all pair id of the requested tutors
+            requestedPair = []
+            for i in searchedLst:
+                for j in Pair.objects.filter(idtutor__exact=i):
+                    requestedPair.append(j)
+
+            print("list of pair id's: ", requestedPair)
+
+        ## Date
+        if searchType == '2':
+            search = int(search.lstrip('0'))
+            for i in Session.objects.all():
+                for search == i.date:
+                    sessionLst.append(i):
+            return rndr
+
+        ## Content
+        if searchType == '3':
+            searchedLst = rptSearch(search)
+
+            return rndr
+
+
+
+
         for i in Session.objects.all():
             if i.idpair in requestedPair:
                 sessionLst.append(i)
-        return render(request, 'adminview.html', {'sessions': sessionLst, 'tutors': tutorLst, 'students': studentLst})
+        return rndr
 
 
     else:
         for i in Session.objects.all():
             sessionLst.append(i)
         list.reverse(sessionLst)
-    return render(request, 'adminview.html', {'sessions': sessionLst, 'tutors':tutorLst, 'students':studentLst})
+    return rndr
 
 # i change some thing here to run success your code with student view
 def studentview(request):
@@ -83,7 +118,7 @@ def studentview(request):
         result['lastname'] = student.lastname
         result['idstudent'] = student.idstudent
 
-        # if u want to use info of tutur => u open comment
+        # if u want to use info of tutor => u open comment
         # tutor = pair.idtutor
         # result['tutor_idtutor'] = tutor.idtutor
         # result['tutor_firstname'] = tutor.firstname
@@ -190,16 +225,23 @@ def updatePS(newScore, idstudent):
     return cpChange
 
 def rptSearch(keyword):
+    '''
+
+    :param keyword: string
+    :return: two lists, one with the outstanding sentence, the other with primary key in form (idpair + date)
+    '''
     rptLst = Session.objects.all()
-    ##Two dimensional array that stores sentence with keyword and the primary key of the Session (idpair + date)
-    result = []
+    reports = []
+    key = []
     for i in rptLst:
         rpt = i.progressreport
         ## Split sentence
         sentences = splitSentence(rpt)
         ## Extracts words
         extract = wordinSentence(sentences, keyword)
-        result.append([extract, rptLst[i], rptLst[i].idpair])
+        reports.append(extract)
+        key.append(rptLst[i], rptLst[i].idpair)
+    return reports, key
 
 
 
