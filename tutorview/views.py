@@ -248,6 +248,7 @@ def rptSearch(keyword):
     rptLst = Session.objects.all()
     reports = []
     key = []
+    print(rptLst)
     for i in rptLst:
         rpt = i.progressreport
         ## Split sentence
@@ -256,6 +257,8 @@ def rptSearch(keyword):
         extract = wordinSentence(sentences, keyword)
         reports.append(extract)
         key.append(rptLst[i], rptLst[i].idpair)
+
+    print(reports, key)
     return reports, key
 
 
