@@ -90,7 +90,7 @@ def adminview(request):
         ## Content
         if searchType == '3':
             searchedLst = rptSearch(search)
-            print(searchedLst)
+            print("This is searched list", searchedLst)
 
             for i in Session.objects.all():
                 for j in searchedLst[1]:
