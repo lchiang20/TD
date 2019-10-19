@@ -30,14 +30,13 @@ def adminview(request):
 
     if request.method  == 'POST':
         searchType = request.POST.get('searchby')
-        print(searchType)
+        print('Choice number ', searchType)
         ## Student name
         if searchType == "0":
             searchedLst = []
             for i in studentLst:
                 if search in i.firstname or search in i.lastname:
                     searchedLst.append(i.idstudent)
-            print("list of student id's: ", searchedLst)
 
 
             ## Gets all pair id of the requested students
@@ -46,7 +45,6 @@ def adminview(request):
                 for j in Pair.objects.filter(idstudent__exact=i):
                     requestedPair.append(j)
 
-            print("list of pair id's: ", requestedPair)
 
             for i in Session.objects.all():
                 if i.idpair in requestedPair:
@@ -59,7 +57,6 @@ def adminview(request):
             for i in tutorLst:
                 if search in i.firstname or search in i.lastname:
                     searchedLst.append(i.idtutor)
-            print("list of student id's: ", searchedLst)
 
             ## Gets all pair id of the requested tutors
             requestedPair = []
@@ -67,12 +64,10 @@ def adminview(request):
                 for j in Pair.objects.filter(idtutor__exact=i):
                     requestedPair.append(j)
 
-            print("list of pair id's: ", requestedPair)
             for i in Session.objects.all():
                 if i.idpair in requestedPair:
                     sessionLst.append(i)
 
-            print(sessionLst)
             return render(request, 'adminview.html', {'sessions': sessionLst, 'tutors': tutorLst, 'students': studentLst})
 
         ## Date
@@ -253,6 +248,7 @@ def rptSearch(keyword):
     print(rptLst)
     for i in rptLst:
         rpt = i.progressreport
+        print(rpt)
         ## Split sentence
         sentences = splitSentence(rpt)
         ## Extracts words
