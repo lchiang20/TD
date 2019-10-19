@@ -248,11 +248,13 @@ def rptSearch(keyword):
     print(rptLst)
     for i in rptLst:
         rpt = i.progressreport
-        print(rpt)
+        print('report: ', rpt)
         ## Split sentence
         sentences = splitSentence(rpt)
+        print('sentences: ', sentences)
         ## Extracts words
         extract = wordinSentence(sentences, keyword)
+        print('extract: ', extract)
         reports.append(extract)
         key.append(rptLst[i], rptLst[i].idpair)
 
