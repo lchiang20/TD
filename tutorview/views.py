@@ -88,11 +88,13 @@ def adminview(request):
         ## Content
         if searchType == '3':
             searchedLst = rptSearch(search)
+            print(searchedLst)
 
             for i in Session.objects.all():
                 for j in searchedLst[1]:
                     if i.pk == j[0] and i.idpair == j[1]:
                         sessionLst.append(i)
+            print(sessionLst)
 
             return render(request, 'adminview.html', {'sessions': sessionLst, 'tutors': tutorLst, 'students': studentLst})
 
