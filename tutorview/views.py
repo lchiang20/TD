@@ -71,6 +71,8 @@ def adminview(request):
             for i in Session.objects.all():
                 if i.idpair in requestedPair:
                     sessionLst.append(i)
+
+            print(sessionLst)
             return render(request, 'adminview.html', {'sessions': sessionLst, 'tutors': tutorLst, 'students': studentLst})
 
         ## Date
@@ -94,7 +96,7 @@ def adminview(request):
                 for j in searchedLst[1]:
                     if i.pk == j[0] and i.idpair == j[1]:
                         sessionLst.append(i)
-            print(sessionLst)
+            print("This is session: ", sessionLst)
 
             return render(request, 'adminview.html', {'sessions': sessionLst, 'tutors': tutorLst, 'students': studentLst})
 
