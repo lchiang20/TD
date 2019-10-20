@@ -28,9 +28,8 @@ def adminview(request):
     sessionLst = []
     search = request.POST.get('search')
 
-    if request.method  == 'POST':
+    if request.method == 'POST':
         searchType = request.POST.get('searchby')
-        print('Choice number ', searchType)
         ## Student name
         if searchType == "0":
             searchedLst = []
@@ -38,18 +37,17 @@ def adminview(request):
                 if search in i.firstname or search in i.lastname:
                     searchedLst.append(i.idstudent)
 
-
             ## Gets all pair id of the requested students
             requestedPair = []
             for i in searchedLst:
                 for j in Pair.objects.filter(idstudent__exact=i):
                     requestedPair.append(j)
 
-
             for i in Session.objects.all():
                 if i.idpair in requestedPair:
                     sessionLst.append(i)
-            return render(request, 'adminview.html', {'sessions': sessionLst, 'tutors': tutorLst, 'students': studentLst})
+            return render(request, 'adminview.html',
+                          {'sessions': sessionLst})
 
         ## Tutor name
         if searchType == '1':
@@ -68,7 +66,8 @@ def adminview(request):
                 if i.idpair in requestedPair:
                     sessionLst.append(i)
 
-            return render(request, 'adminview.html', {'sessions': sessionLst, 'tutors': tutorLst, 'students': studentLst})
+            return render(request, 'adminview.html',
+                          {'sessions': sessionLst})
 
         ## Date
         if searchType == '2':
@@ -77,44 +76,43 @@ def adminview(request):
                 for i in Session.objects.all():
                     if search == i.date:
                         sessionLst.append(i)
-                return render(request, 'adminview.html', {'sessions': sessionLst, 'tutors': tutorLst, 'students': studentLst})
+                return render(request, 'adminview.html',
+                              {'sessions': sessionLst})
             else:
-                return render(request, 'adminview.html', {'sessions': sessionLst, 'tutors': tutorLst, 'students': studentLst})
+                return render(request, 'adminview.html',
+                              {'sessions': sessionLst})
 
+        print("This is the search", search)
 
         ## Content
         if searchType == '3':
+            print("it's running correctly")
             searchedLst = rptSearch(search)
             print("This is searched list", searchedLst)
 
-            for i in Session.objects.all():
-                for j in searchedLst[1]:
-                    if i.pk == j[0] and i.idpair == j[1]:
-                        sessionLst.append(i)
             print("This is session: ", sessionLst)
 
-            return render(request, 'adminview.html', {'sessions': sessionLst, 'tutors': tutorLst, 'students': studentLst})
+            return render(request, 'adminview.html',
+                          {'sessions': searchedLst[1]})
 
 
         else:
             for i in Session.objects.all():
                 sessionLst.append(i)
             list.reverse(sessionLst)
-        return render(request, 'adminview.html', {'sessions': sessionLst, 'tutors':tutorLst, 'students':studentLst})
+        return render(request, 'adminview.html', {'sessions': sessionLst})
     else:
         for i in Session.objects.all():
             sessionLst.append(i)
         list.reverse(sessionLst)
-    return render(request, 'adminview.html', {'sessions': sessionLst, 'tutors':tutorLst, 'students':studentLst})
+    return render(request, 'adminview.html', {'sessions': sessionLst})
 
 # i change some thing here to run success your code with student view
 def studentview(request):
     ## TEST VALUE
     email = request.session.get('email')
     tutor = Tutor.objects.filter(email__icontains = 'lchiang20@ssis.edu.vn').first()
-    print tutor.idtutor
     pairs = Pair.objects.filter(idtutor = tutor.idtutor)
-    print pairs
     studentLst = []
     
     #check of user is admin
@@ -240,12 +238,13 @@ def rptSearch(keyword):
     '''
 
     :param keyword: string
-    :return: two lists, one with the outstanding sentence, the other with primary key in form (idpair + date)
+    :return: two lists, one with the outstanding sentence, the other with the sessions
     '''
     rptLst = Session.objects.all()
     reports = []
     key = []
-    print(rptLst)
+    print("This is report list: ", rptLst)
+    print("This is first element: ", rptLst[0].progressreport)
     for i in rptLst:
         rpt = i.progressreport
         print('report: ', rpt)
@@ -255,8 +254,10 @@ def rptSearch(keyword):
         ## Extracts words
         extract = wordinSentence(sentences, keyword)
         print('extract: ', extract)
-        reports.append(extract)
-        key.append(rptLst[i], rptLst[i].idpair)
+        print(extract != [])
+        if extract != []:
+            reports.append(extract)
+            key.append(i)
 
     print(reports, key)
     return reports, key
@@ -269,6 +270,7 @@ def splitSentence(rpt):
     '''
     endPunct = ['.', '!', '?']
     indices = [0]
+    rpt = rpt + "."
     ## find indices of end punctuations
     for i in endPunct:
         ends = [j for j,  k in enumerate(rpt) if k == i]
@@ -288,12 +290,12 @@ def wordinSentence(sentences, word):
     :param sentence: list of sentences
     :return: list of sentence with the keywords in it
     '''
+    print('sentences: ', sentences)
     result = []
     for i in sentences:
         if word in i:
             result.append(i)
     return result
-
 
 
 
