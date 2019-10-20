@@ -1,58 +1,60 @@
-{% load staticfiles %}
+
+{%  load staticfiles %}
 <!DOCTYPE html>
 <script src="{%  static 'assets/admin/js/welcome.js' %}"></script>
 <link rel="stylesheet" type="text/css" href="{%  static 'assets/admin/css/index.css' %}">
-<script src="{%  static 'assets/admin/js/jquery.min.js' %}" type="text/javascript"></script>
+
+
 <div class="login-page">
-    <div class="form">
+  <div class="form">
+    <head>
 
-        <head>
+        <meta name="google-signin-client_id" content="844447968069-sll1lj94217jbntgvtqcm3s2fnan4prt.apps.googleusercontent.com">
 
-            <meta name="google-signin-client_id" content="844447968069-sll1lj94217jbntgvtqcm3s2fnan4prt.apps.googleusercontent.com">
-
-        </head>
-        <body>
-            <div class="g-signin2" data-onsuccess="onSignIn"></div>
-            <div id = 'button-tab' class = 'button-tab'>
-                <button id="btn" name = 'btn'  onclick="window.location.href = '/studentview/';">Proceed</button>
-            </div>
-        </body>
-
-        <script>
-
-            function onSignIn(googleUser) {
-                var profile = googleUser.getBasicProfile();
-                var token = '{{ csrf_token }}';
-                var mail = profile.getEmail()
-                $.ajax({
-                    headers: {"X-CSRFToken": token},
-                    url: '',
-                    data: {'email':mail},
-                    type: 'POST',
-                    success: function(response) { // Go through application if does work then prints
-                        console.log("it works, God save the Queen!");
-
-                    },
-                });
-            }
-
-            function signOut() {
-                var auth2 = gapi.auth2.getAuthInstance();
-                auth2.signOut().then(function() {
-                    console.log('User signed out.');
-                });
-            }
-
-            function onLoad() {
-                gapi.load('auth2', function() {
-                    gapi.auth2.init();
-                });
-            }
-        </script>
-        <a href="#" onclick="signOut();">Sign out</a>
-
-        <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+    </head>
 
 
-    </div>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+    <script>
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            var email;
+            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+            console.log('Name: ' + profile.getName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('email:  ' + profile.getEmail());
+            email = profile.getEmail(); // This is null if the 'email' scope is not present.
+            document.getElementById("remail").innerHTML = email; document.write(email);
+        }
+
+        function signOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function() {
+                console.log('User signed out.');
+            });
+        }
+
+        function onLoad() {
+            gapi.load('auth2', function() {
+                gapi.auth2.init();
+            });
+        }
+
+
+    </script>
+    <a href="#" onclick="signOut();">Sign out</a>
+
+    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+
+    <p>
+        <form action="" method="POST">{% csrf_token %}
+            <select id="email" name='email'>
+                <option><span id = "remail"></span></option>
+                <script>document.getElementById("email").style.display = "none";</script>
+            </select>
+        </form>
+    </p>
+
+  </div>
 </div>
