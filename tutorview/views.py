@@ -131,6 +131,11 @@ def studentview(request):
     print(request.POST.get('profScore') and request.POST.get('idStudent')\
                 and request.POST.get('coopScore') and request.POST.get('report'))
     if request.method == 'POST':
+        print(request.POST.get('profScore'))
+        print(request.POST.get('idStudent'))
+        print(request.POST.get('coopScore'))
+        print(request.POST.get('report'))
+
         if request.POST.get('profScore') and request.POST.get('idStudent')\
                 and request.POST.get('coopScore') and request.POST.get('report'):
             rpt = request.POST.get('report')
