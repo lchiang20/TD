@@ -223,6 +223,7 @@ def updatePS(newScore, idstudent):
     Student.objects.filter(pk=idstudent).update(profscore = result)
     return cpChange
 
+
 def rptSearch(keyword):
     '''
 
@@ -232,23 +233,16 @@ def rptSearch(keyword):
     rptLst = Session.objects.all()
     reports = []
     key = []
-    print("This is report list: ", rptLst)
-    print("This is first element: ", rptLst[0].progressreport)
     for i in rptLst:
         rpt = i.progressreport
-        print('report: ', rpt)
         ## Split sentence
         sentences = splitSentence(rpt)
-        print('sentences: ', sentences)
         ## Extracts words
         extract = wordinSentence(sentences, keyword)
-        print('extract: ', extract)
-        print(extract != [])
         if extract != []:
             reports.append(extract)
             key.append(i)
 
-    print(reports, key)
     return reports, key
 
 
