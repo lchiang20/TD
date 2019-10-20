@@ -111,30 +111,19 @@ def adminview(request):
 def studentview(request):
     ## TEST VALUE
     email = request.session.get('email')
-    tutor = Tutor.objects.filter(email__icontains = 'lchiang20@ssis.edu.vn').first()
-    pairs = Pair.objects.filter(idtutor = tutor.idtutor)
+    tutor = Tutor.objects.filter(email__icontains = email)[0].idtutor
+    pairSelect = Pair.objects.filter(idtutor__exact = tutor)
     studentLst = []
     
     #check of user is admin
-    if tutor.admin == 1:
+    if Tutor.objects.filter(pk=tutor)[0].admin == 1:
         admin = True
     else:
         admin = False
-    for pair in pairs:
-        result = {}
-        student = pair.idstudent
-        tutor = pair.idtutor
-        result['firstname'] = student.firstname
-        result['lastname'] = student.lastname
-        result['idstudent'] = student.idstudent
 
-        # if u want to use info of tutor => u open comment
-        # tutor = pair.idtutor
-        # result['tutor_idtutor'] = tutor.idtutor
-        # result['tutor_firstname'] = tutor.firstname
-
-        studentLst.append(result)
-    print studentLst
+    for i in pairSelect:
+        perStudent = Student.objects.filter(pk = i.idstudent.idstudent)
+        studentLst.append(perStudent[0])
 
     if request.method == 'POST':
         if request.POST.get('profScore') and request.POST.get('idStudent')\
