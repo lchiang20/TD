@@ -128,6 +128,8 @@ def studentview(request):
 
     print(request.method == 'POST')
     updateSession("Internal Update", 1, 12, 12)
+    print(request.POST.get('profScore') and request.POST.get('idStudent')\
+                and request.POST.get('coopScore') and request.POST.get('report'))
     if request.method == 'POST':
         if request.POST.get('profScore') and request.POST.get('idStudent')\
                 and request.POST.get('coopScore') and request.POST.get('report'):
