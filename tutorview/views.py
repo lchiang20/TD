@@ -108,6 +108,7 @@ def adminview(request):
     return render(request, 'adminview.html', {'sessions': sessionLst})
 
 # i change some thing here to run success your code with student view
+
 def studentview(request):
     ## TEST VALUE
     email = request.session.get('email')
@@ -125,6 +126,8 @@ def studentview(request):
         perStudent = Student.objects.filter(pk = i.idstudent.idstudent)
         studentLst.append(perStudent[0])
 
+    print(request.method == 'POST')
+    updateSession("Internal Update", 1, 12, 12)
     if request.method == 'POST':
         if request.POST.get('profScore') and request.POST.get('idStudent')\
                 and request.POST.get('coopScore') and request.POST.get('report'):
