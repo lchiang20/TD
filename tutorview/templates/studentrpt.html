@@ -40,7 +40,7 @@
     <div id='{{student.idstudent }}' class="tabcontent">
         <h3>{{student.firstname}} {{student.lastname }}</h3>
         <form action="" method="POST">{% csrf_token %}
-            <select id="idStudent" name='idStudent ' class="info_form">
+            <select id="idStudent" name='idStudent' class="info_form">
             <option>{{ student.idstudent }}</option>
         </select>
             <textarea rows='8 ' cols='100 ' name="report" id="report"></textarea>
