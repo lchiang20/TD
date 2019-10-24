@@ -195,18 +195,11 @@ def updateSession(rpt, pair, profchange, coopchange):
 def updateCS(newScore, student):
     '''updates new cooperation score based on passed value'''
 
-    oldScore = Student.objects.filter(idstudent__exact = student)[0].coopscore
-    if len(str(oldScore)) < 9:
-        current = '100100100'
-    else:
-        current = str(oldScore)
-    ## gets last three numbers
-    num_1 = int(current[6:9].lstrip('0'))
-    ## gets middle three numbers
-    num_2 = int(current[3:6].lstrip('0'))
-    ## gets first three numbers
-    num_3 = int(current[0:3].lstrip('0'))
-    oldAvg = (num_1+num_2+num_3)/3
+    score1 = Student.objects.filter(idstudent__exact = student)[0].coopscore1
+    score2 = Student.objects.filter(idstudent__exact = student)[0].coopscore2
+    score3 = Student.objects.filter(idstudent__exact = student)[0].coopscore3
+
+    oldAvg = (score1+score2+score3)/3
     newScore = int(newScore) + 95
     ## updates score /w new input
     result = str(newScore) + current[:6]
@@ -217,7 +210,7 @@ def updateCS(newScore, student):
     profChange = newAvg - oldAvg
     print(num_1, num_2, num_3, oldAvg, newAvg, newScore, oldScore)
     ## making updates
-    Student.objects.filter(pk=student).update(coopscore = result)
+    Student.objects.filter(pk=student).update(coopscore1 = result)
     return profChange
 
 def updatePS(newScore, idstudent):
