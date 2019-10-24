@@ -146,9 +146,9 @@ def studentview(request):
 
             ### NEED TO GET TUTOR ID FOR
             # VAR tutor BELOW
-            coopChange = updateCS(coop, student)
+            coopChange = updateCS(int(coop), student)
             print('coopChange ran')
-            profChange = updatePS(prof, student)
+            profChange = updatePS(int(prof), student)
             updateSession(rpt, pair, profChange, coopChange)
             if admin == True:
                 return render(request, 'studentrpt.html', {'students': studentLst, 'admin': True})
