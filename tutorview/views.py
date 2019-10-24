@@ -200,15 +200,10 @@ def updateCS(newScore, student):
     score3 = Student.objects.filter(idstudent__exact = student)[0].coopscore3
 
     oldAvg = (score1+score2+score3)/3
-    newScore = int(newScore) + 95
-    ## updates score /w new input
-    result = str(newScore) + current[:6]
-    print(current)
-    print(result)
     ## updates average and cumulative change
-    newAvg = (num_2+num_3+newScore)/3
+    newAvg = (score2+score3+newScore)/3
     profChange = newAvg - oldAvg
-    print(num_1, num_2, num_3, oldAvg, newAvg, newScore, oldScore)
+    print(score1, score2, score3, oldAvg, newAvg)
     ## making updates
     Student.objects.filter(pk=student).update(coopscore1 = result)
     return profChange
