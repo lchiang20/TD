@@ -126,15 +126,9 @@ def studentview(request):
         perStudent = Student.objects.filter(pk = i.idstudent.idstudent)
         studentLst.append(perStudent[0])
 
-    print(request.method == 'POST')
     updateSession("Internal Update", 1, 12, 12)
-    print(request.POST.get('profScore') and request.POST.get('idStudent')\
-                and request.POST.get('coopScore') and request.POST.get('report'))
     if request.method == 'POST':
-        print(request.POST.get('profScore'))
-        print(request.POST.get('idStudent'))
-        print(request.POST.get('coopScore'))
-        print(request.POST.get('report'))
+
 
         if request.POST.get('profScore') and request.POST.get('idStudent')\
                 and request.POST.get('coopScore') and request.POST.get('report'):
@@ -147,7 +141,6 @@ def studentview(request):
             ### NEED TO GET TUTOR ID FOR
             # VAR tutor BELOW
             coopChange = updateCS(int(coop), int(student))
-            print('coopChange ran')
             profChange = updatePS(int(prof), int(student))
             updateSession(rpt, pair, profChange, coopChange)
             if admin == True:
@@ -201,29 +194,21 @@ def updateCS(newScore, student):
     score3 = Student.objects.filter(idstudent__exact = student)[0].coopscore3
 
     newScore = newScore + 40
-    print(score1, score2, score3)
-    print(newScore)
-    print(score1+score2)
+
     oldAvg = (score1+score2+score3)/3
-    print(oldAvg)
     ## updates average and cumulative change
     newAvg = (score2+score3+newScore)/3
-    print(newAvg)
     profChange = newAvg - oldAvg
-    print(profChange)
-    print(score1, score2, score3, oldAvg, newAvg)
-    print("Student id: ", student)
     ## making updates
     Student.objects.filter(pk=student).update(coopscore1 = newScore)
     Student.objects.filter(pk=student).update(coopscore2 = score1)
     Student.objects.filter(pk=student).update(coopscore3 = score2)
 
-    print("update successful")
     return profChange
 
 def updatePS(newScore, idstudent):
     '''updates the current proficiency score based on passed value'''
-    base = 45
+    base = 95
     oldScore = int(Student.objects.get(pk=idstudent).profscore)
     ## creates base value
     if oldScore == 0:
