@@ -213,7 +213,7 @@ def updatePS(newScore, idstudent):
     ## creates base value
     if oldScore == 0:
         oldScore = 100
-    result = 1.8*(base+int(newScore)) + 0.2*(oldScore)
+    result = 0.6*(base+int(newScore)) + 0.4*(oldScore)
     print(newScore)
     cpChange = result - oldScore
     Student.objects.filter(pk=idstudent).update(profscore = result)
