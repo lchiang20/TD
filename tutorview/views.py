@@ -147,6 +147,7 @@ def studentview(request):
             ### NEED TO GET TUTOR ID FOR
             # VAR tutor BELOW
             coopChange = updateCS(coop, student)
+            print('coopChange ran')
             profChange = updatePS(prof, student)
             updateSession(rpt, pair, profChange, coopChange)
             if admin == True:
@@ -198,6 +199,8 @@ def updateCS(newScore, student):
     score1 = Student.objects.filter(idstudent__exact = student)[0].coopscore1
     score2 = Student.objects.filter(idstudent__exact = student)[0].coopscore2
     score3 = Student.objects.filter(idstudent__exact = student)[0].coopscore3
+
+    print(score1, score2, score3)
 
     oldAvg = (score1+score2+score3)/3
     ## updates average and cumulative change
