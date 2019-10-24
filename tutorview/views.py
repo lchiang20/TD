@@ -202,7 +202,7 @@ def updateCS(newScore, student):
 
     print(score1, score2, score3)
     print(newScore)
-
+    print(score1+score2)
     oldAvg = (score1+score2+score3)/3
     print(oldAvg)
     ## updates average and cumulative change
