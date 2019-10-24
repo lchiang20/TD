@@ -31,13 +31,15 @@
 
     <div class="tab">
         {% for student in students %}
-        <button class="tablinks" onclick="openStudent(event, {{ student.idstudent }})">{{ student.firstname}}</button> {% endfor %}
+        <button class="tablinks" onclick="openStudent(event, {{ student.idstudent }})">
+            {{ student.firstname}}{{ student.lastname }}
+        </button> {% endfor %}
 
     </div>
 
 
     {% for student in students %}
-    <div id='{{student.idstudent }} {{ student.lastname }}' class="tabcontent">
+    <div id='{{student.idstudent }}' class="tabcontent">
         <h3>{{student.firstname}} {{student.lastname }}</h3>
         <form action="" method="POST">{% csrf_token %}
             <select id="idStudent" name='idStudent' class="info_form">
