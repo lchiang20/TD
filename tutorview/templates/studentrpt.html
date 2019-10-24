@@ -32,7 +32,7 @@
     <div class="tab">
         {% for student in students %}
         <button class="tablinks" onclick="openStudent(event, {{ student.idstudent }})">
-            {{ student.firstname}}{{ student.lastname }}
+            {{ student.firstname}} {{ student.lastname }}
         </button> {% endfor %}
 
     </div>
