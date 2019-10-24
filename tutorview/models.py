@@ -40,8 +40,8 @@ class Student(models.Model):
     absences = models.IntegerField()
     profscore = models.IntegerField(db_column='profScore')  # Field name made lowercase.
     coopscore1 = models.IntegerField(db_column='coopScore1')  # Field name made lowercase.
-    coopscore2 = models.IntegerField(db_column='coopScore2', max_length=45)  # Field name made lowercase.
-    coopscore3 = models.IntegerField(db_column='coopScore3', max_length=45)  # Field name made lowercase.
+    coopscore2 = models.IntegerField(db_column='coopScore2')  # Field name made lowercase.
+    coopscore3 = models.IntegerField(db_column='coopScore3')  # Field name made lowercase.
     parentemail = models.CharField(db_column='parentEmail', max_length=45, blank=True, null=True)  # Field name made lowercase.
     teacher = models.CharField(max_length=45)
 
