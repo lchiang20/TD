@@ -204,9 +204,12 @@ def updateCS(newScore, student):
     print(newScore)
 
     oldAvg = (score1+score2+score3)/3
+    print(oldAvg)
     ## updates average and cumulative change
     newAvg = (score2+score3+newScore)/3
+    print(newAvg)
     profChange = newAvg - oldAvg
+    print(profChange)
     print(score1, score2, score3, oldAvg, newAvg)
     ## making updates
     Student.objects.filter(pk=student).update(coopscore1 = result)
