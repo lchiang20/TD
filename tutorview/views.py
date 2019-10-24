@@ -213,6 +213,7 @@ def updateCS(newScore, student):
     print(score1, score2, score3, oldAvg, newAvg)
     ## making updates
     Student.objects.filter(pk=student).update(coopscore1 = result)
+    print("update successful")
     return profChange
 
 def updatePS(newScore, idstudent):
