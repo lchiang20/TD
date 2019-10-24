@@ -211,8 +211,12 @@ def updateCS(newScore, student):
     profChange = newAvg - oldAvg
     print(profChange)
     print(score1, score2, score3, oldAvg, newAvg)
+    print("Student id: ", student)
     ## making updates
-    Student.objects.filter(pk=student).update(coopscore1 = result)
+    Student.objects.filter(pk=student).update(coopscore1 = newScore)
+    Student.objects.filter(pk=student).update(coopscore2 = score1)
+    Student.objects.filter(pk=student).update(coopscore3 = score2)
+
     print("update successful")
     return profChange
 
