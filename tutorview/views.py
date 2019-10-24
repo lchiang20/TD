@@ -200,6 +200,7 @@ def updateCS(newScore, student):
     score2 = Student.objects.filter(idstudent__exact = student)[0].coopscore2
     score3 = Student.objects.filter(idstudent__exact = student)[0].coopscore3
 
+    newScore = newScore + 40
     print(score1, score2, score3)
     print(newScore)
     print(score1+score2)
