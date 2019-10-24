@@ -37,7 +37,7 @@
 
 
     {% for student in students %}
-    <div id='{{student.idstudent }}' class="tabcontent">
+    <div id='{{student.idstudent }} {{ student.lastname }}' class="tabcontent">
         <h3>{{student.firstname}} {{student.lastname }}</h3>
         <form action="" method="POST">{% csrf_token %}
             <select id="idStudent" name='idStudent' class="info_form">
