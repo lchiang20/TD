@@ -198,13 +198,13 @@ def updateCS(newScore, student):
     oldAvg = (score1+score2+score3)/3
     ## updates average and cumulative change
     newAvg = (score2+score3+newScore)/3
-    profChange = newAvg - oldAvg
+    coopChange = newAvg - oldAvg
     ## making updates
     Student.objects.filter(pk=student).update(coopscore1 = newScore)
     Student.objects.filter(pk=student).update(coopscore2 = score1)
     Student.objects.filter(pk=student).update(coopscore3 = score2)
 
-    return profChange
+    return coopChange
 
 def updatePS(newScore, idstudent):
     '''updates the current proficiency score based on passed value'''
@@ -213,11 +213,11 @@ def updatePS(newScore, idstudent):
     ## creates base value
     if oldScore == 0:
         oldScore = 100
-    result = 0.6*(base+int(newScore)) + 0.4*(oldScore)
+    result = 0.4*(base+int(newScore)) + 0.6*(oldScore)
     print(newScore)
-    cpChange = result - oldScore
+    profChange = result - oldScore
     Student.objects.filter(pk=idstudent).update(profscore = result)
-    return cpChange
+    return profChange
 
 
 def rptSearch(keyword):
