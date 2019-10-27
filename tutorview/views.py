@@ -11,13 +11,10 @@ def index(request):
 
     if request.POST:
         email = request.POST.get('email')
-        print(email)
         request.session['email'] = email
         return render(request, 'index.html', {'logged' : True})
     else:
-        print("AHHHHH")
         email = request.POST.get('email')
-        print(email)
         return render(request, 'index.html', {'logged':False})
 
 
@@ -126,10 +123,7 @@ def studentview(request):
         perStudent = Student.objects.filter(pk = i.idstudent.idstudent)
         studentLst.append(perStudent[0])
 
-    updateSession("Internal Update", 1, 12, 12)
     if request.method == 'POST':
-
-
         if request.POST.get('profScore') and request.POST.get('idStudent')\
                 and request.POST.get('coopScore') and request.POST.get('report'):
             rpt = request.POST.get('report')
